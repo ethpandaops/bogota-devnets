@@ -24,7 +24,7 @@ forky:
         sub_filter_types text/html;
         sub_filter_once off;
     hosts:
-      - host: forky.frames-devnet-0.ethpandaops.io
+      - host: forky.bogota-devnet-0.ethpandaops.io
         paths:
           - path: /
             pathType: Prefix

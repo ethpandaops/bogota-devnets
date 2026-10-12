@@ -23,7 +23,7 @@ spamoor:
         sub_filter_types text/html;
         sub_filter_once off;
     hosts:
-      - host: spamoor.frames-devnet-0.ethpandaops.io
+      - host: spamoor.bogota-devnet-0.ethpandaops.io
         paths:
           - path: /
             pathType: Prefix
@@ -35,7 +35,7 @@ spamoor:
     enabled: true
 
   privateKey: "<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.frames-devnets.spamoor_private_key}>"
-  authProviderUrl: "https://auth.frames-devnet-0.ethpandaops.io"
+  authProviderUrl: "https://auth.bogota-devnet-0.ethpandaops.io"
   rpcEndpoints:
   - "group(bootnode-1)name(bootnode-1)https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.frames-devnets.node_ingress.combined}>@rpc-bootnode-1.srv.frames-devnet-0.ethpandaops.io"
   - "group(lighthouse-ethrex-1)name(lighthouse-ethrex-1)https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.frames-devnets.node_ingress.combined}>@rpc-lighthouse-ethrex-1.srv.frames-devnet-0.ethpandaops.io"

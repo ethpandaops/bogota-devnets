@@ -15,7 +15,7 @@ authenticatoor:
       cpu: 200m
       memory: 128Mi
 
-  issuer: "https://auth.frames-devnet-0.ethpandaops.io"
+  issuer: "https://auth.bogota-devnet-0.ethpandaops.io"
 
   cloudflareAccess:
     verifyJWT: true
@@ -30,7 +30,7 @@ authenticatoor:
     enabled: true
     className: ingress-nginx-public
     hosts:
-      - host: auth.frames-devnet-0.ethpandaops.io
+      - host: auth.bogota-devnet-0.ethpandaops.io
         paths:
           - path: /
             pathType: Prefix

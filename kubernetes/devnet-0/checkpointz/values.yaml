@@ -23,14 +23,14 @@ checkpointz:
         sub_filter_types text/html;
         sub_filter_once off;
     hosts:
-      - host: checkpoint-sync.frames-devnet-0.ethpandaops.io
+      - host: checkpoint-sync.bogota-devnet-0.ethpandaops.io
         paths:
           - path: /
             pathType: Prefix
 
     tls:
     - hosts:
-      - checkpoint-sync.frames-devnet-0.ethpandaops.io
+      - checkpoint-sync.bogota-devnet-0.ethpandaops.io
       secretName: frames-devnet-0-checkpoint-sync-tls
 
   config:

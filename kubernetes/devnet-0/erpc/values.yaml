@@ -17,7 +17,7 @@ erpc:
     enabled: true
     className: ingress-nginx-public
     hosts:
-      - host: rpc.frames-devnet-0.ethpandaops.io
+      - host: rpc.bogota-devnet-0.ethpandaops.io
         paths:
           - path: /
             pathType: Prefix

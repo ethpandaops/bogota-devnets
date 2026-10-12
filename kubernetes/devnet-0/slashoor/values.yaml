@@ -45,7 +45,7 @@ slashoor:
 
     dora:
       enabled: true
-      url: https://dora.frames-devnet-0.ethpandaops.io
+      url: https://dora.bogota-devnet-0.ethpandaops.io
       scan_on_startup: true
 
     # Committee resolution for deep history needs archive states; the Dora

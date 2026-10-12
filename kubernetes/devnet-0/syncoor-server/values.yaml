@@ -29,7 +29,7 @@ syncoor-server:
       className: ingress-nginx-public
       enabled: true
       hosts:
-        - host: syncoor-api.frames-devnet-0.ethpandaops.io
+        - host: syncoor-api.bogota-devnet-0.ethpandaops.io
           paths:
             - path: /
               pathType: Prefix
