@@ -32,7 +32,7 @@ testnet-homepage:
 
   customMarkdown: |-
     ## Network Spec
-    https://notes.ethereum.org/@ethpandaops/frames-devnet-0
+    https://notes.ethereum.org/@ethpandaops/bogota-devnet-0
 
     ## Ansible setup
     https://github.com/ethpandaops/frames-devnets
