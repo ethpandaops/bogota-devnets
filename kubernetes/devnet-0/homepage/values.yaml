@@ -25,7 +25,7 @@ testnet-homepage:
         sub_filter_once off;
 
     hosts:
-      - host: frames-devnet-0.ethpandaops.io
+      - host: bogota-devnet-0.ethpandaops.io
         paths:
           - path: /
             pathType: Prefix
@@ -41,48 +41,48 @@ testnet-homepage:
     https://github.com/ethpandaops/frames-devnets/blob/master/ansible/inventories/devnet-0/group_vars/all/images.yaml
 
     ## Validator ranges
-    - https://config.frames-devnet-0.ethpandaops.io/api/v1/nodes/validator-ranges
+    - https://config.bogota-devnet-0.ethpandaops.io/api/v1/nodes/validator-ranges
 
     Some examples:
     ```sh
     ## Pretty print in YAML format
-    curl -s https://config.frames-devnet-0.ethpandaops.io/api/v1/nodes/validator-ranges \
+    curl -s https://config.bogota-devnet-0.ethpandaops.io/api/v1/nodes/validator-ranges \
       | yq '.ranges' -P
     ```
 
     ## Ethereum node inventory
-    - https://config.frames-devnet-0.ethpandaops.io/api/v1/nodes/inventory
+    - https://config.bogota-devnet-0.ethpandaops.io/api/v1/nodes/inventory
 
     Some examples on how to filter specific data from the node inventory:
     ```sh
     # Getting execution layer client enodes
-    curl -s https://config.frames-devnet-0.ethpandaops.io/api/v1/nodes/inventory \
+    curl -s https://config.bogota-devnet-0.ethpandaops.io/api/v1/nodes/inventory \
       | jq -r '.ethereum_pairs[] | .execution.enode'
     # Getting conseus layer client ENRs
-    curl -s https://config.frames-devnet-0.ethpandaops.io/api/v1/nodes/inventory \
+    curl -s https://config.bogota-devnet-0.ethpandaops.io/api/v1/nodes/inventory \
       | jq -r '.ethereum_pairs[] | .consensus.enr'
     ```
 
     ## Genesis configuration
     ### Execution layer clients
-    - https://config.frames-devnet-0.ethpandaops.io/el/genesis.json
-    - https://config.frames-devnet-0.ethpandaops.io/el/besu.json
-    - https://config.frames-devnet-0.ethpandaops.io/el/chainspec.json
+    - https://config.bogota-devnet-0.ethpandaops.io/el/genesis.json
+    - https://config.bogota-devnet-0.ethpandaops.io/el/besu.json
+    - https://config.bogota-devnet-0.ethpandaops.io/el/chainspec.json
 
     ### Consensus layer clients
-    - https://config.frames-devnet-0.ethpandaops.io/cl/config.yaml
-    - https://config.frames-devnet-0.ethpandaops.io/cl/genesis.ssz
-    - https://config.frames-devnet-0.ethpandaops.io/cl/deposit_contract.txt
-    - https://config.frames-devnet-0.ethpandaops.io/cl/deposit_contract_block.txt
-    - https://config.frames-devnet-0.ethpandaops.io/cl/deposit_contract_block_hash.txt
+    - https://config.bogota-devnet-0.ethpandaops.io/cl/config.yaml
+    - https://config.bogota-devnet-0.ethpandaops.io/cl/genesis.ssz
+    - https://config.bogota-devnet-0.ethpandaops.io/cl/deposit_contract.txt
+    - https://config.bogota-devnet-0.ethpandaops.io/cl/deposit_contract_block.txt
+    - https://config.bogota-devnet-0.ethpandaops.io/cl/deposit_contract_block_hash.txt
 
 
   customArgs:
     - -b
-    - https://frames-devnet-0.ethpandaops.io
+    - https://bogota-devnet-0.ethpandaops.io
 
   config:
-    baseURL: https://frames-devnet-0.ethpandaops.io
+    baseURL: https://bogota-devnet-0.ethpandaops.io
     languageCode: en-us
     title: "frames-devnet-0"
     theme: PaperMod
@@ -96,21 +96,21 @@ testnet-homepage:
       disableThemeToggle: true
       defaultTheme: dark
       ethereum:
-        faucetUrl: https://faucet.frames-devnet-0.ethpandaops.io
-        rpcUrl: https://rpc.frames-devnet-0.ethpandaops.io
-        beaconRpcUrl: https://beacon.frames-devnet-0.ethpandaops.io
-        forkmonUrl: https://forkmon.frames-devnet-0.ethpandaops.io
-        assertoorUrl: https://assertoor.frames-devnet-0.ethpandaops.io
+        faucetUrl: https://faucet.bogota-devnet-0.ethpandaops.io
+        rpcUrl: https://rpc.bogota-devnet-0.ethpandaops.io
+        beaconRpcUrl: https://beacon.bogota-devnet-0.ethpandaops.io
+        forkmonUrl: https://forkmon.bogota-devnet-0.ethpandaops.io
+        assertoorUrl: https://assertoor.bogota-devnet-0.ethpandaops.io
         beaconexplorerUrl: "https://frames-devnet-0.beaconcha.in"
-        doraUrl: https://dora.frames-devnet-0.ethpandaops.io
-        checkpointSyncUrl: "https://checkpoint-sync.frames-devnet-0.ethpandaops.io"
+        doraUrl: https://dora.bogota-devnet-0.ethpandaops.io
+        checkpointSyncUrl: "https://checkpoint-sync.bogota-devnet-0.ethpandaops.io"
         blobscanUrl: https://blobscan.com
-        blobscanethpandaUrl: https://blobscan.frames-devnet-0.ethpandaops.io
-        ethstatsUrl: https://ethstats.frames-devnet-0.ethpandaops.io
+        blobscanethpandaUrl: https://blobscan.bogota-devnet-0.ethpandaops.io
+        ethstatsUrl: https://ethstats.bogota-devnet-0.ethpandaops.io
         chainName: "frames-devnet-0"
         chainId: "7034189865"
         github: https://github.com/ethpandaops/frames-devnets/tree/master/network-configs/devnet-0/metadata
-        syncoorUrl: https://syncoor.frames-devnet-0.ethpandaops.io
+        syncoorUrl: https://syncoor.bogota-devnet-0.ethpandaops.io
       metamask:
         enabled: true
       logo:

@@ -23,7 +23,7 @@ dugtrio:
         sub_filter_types text/html;
         sub_filter_once off;
     hosts:
-      - host: beacon.frames-devnet-0.ethpandaops.io
+      - host: beacon.bogota-devnet-0.ethpandaops.io
         paths:
           - path: /
             pathType: Prefix

@@ -23,7 +23,7 @@ tracoor-single:
           sub_filter_types text/html;
           sub_filter_once off;
       hosts:
-        - host: tracoor.frames-devnet-0.ethpandaops.io
+        - host: tracoor.bogota-devnet-0.ethpandaops.io
           paths:
             - path: /
               pathType: Prefix

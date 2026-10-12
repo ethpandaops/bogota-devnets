@@ -49,7 +49,7 @@ syncoor-web:
             "syncoorApiEndpoints": [
               {
                 "name": "Syncoor",
-                "url": "https://syncoor-api.frames-devnet-0.ethpandaops.io"
+                "url": "https://syncoor-api.bogota-devnet-0.ethpandaops.io"
               }
             ]
           }
@@ -65,7 +65,7 @@ syncoor-web:
           sub_filter_types text/html;
           sub_filter_once off;
       hosts:
-        - host: syncoor.frames-devnet-0.ethpandaops.io
+        - host: syncoor.bogota-devnet-0.ethpandaops.io
           paths:
             - path: /
               pathType: Prefix

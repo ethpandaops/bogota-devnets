@@ -25,7 +25,7 @@ powfaucet:
     basicAuth: "<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.frames-devnets.node_ingress.username}>:{PLAIN}<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.frames-devnets.node_ingress.password}>"
 
     hosts:
-      - host: faucet-agents.frames-devnet-0.ethpandaops.io
+      - host: faucet-agents.bogota-devnet-0.ethpandaops.io
         paths:
           - path: /
             pathType: Prefix
@@ -62,7 +62,7 @@ powfaucet:
     - url: "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.frames-devnets.node_ingress.combined}>@rpc-lighthouse-ethrex-2.srv.frames-devnet-0.ethpandaops.io"
       name: "lighthouse-ethrex-2"
       priority: 5
-  faucetExplorerLink: "https://dora.frames-devnet-0.ethpandaops.io/tx/{txid}"
+  faucetExplorerLink: "https://dora.bogota-devnet-0.ethpandaops.io/tx/{txid}"
 
   faucetCaptchaEnabled: false
   faucetCaptchaSitekey: "<path:/secrets/services/services.enc.yaml#hcaptcha | jsonPath {.site_key}>"

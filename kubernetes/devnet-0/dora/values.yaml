@@ -23,18 +23,18 @@ dora:
         sub_filter_types text/html;
         sub_filter_once off;
     hosts:
-      - host: dora.frames-devnet-0.ethpandaops.io
+      - host: dora.bogota-devnet-0.ethpandaops.io
         paths:
           - path: /
             pathType: Prefix
 
   name: "frames-devnet-0"
-  configPath: "https://config.frames-devnet-0.ethpandaops.io/cl/config.yaml"
-  validatorNamesInventory: "https://config.frames-devnet-0.ethpandaops.io/api/v1/nodes/validator-ranges"
-  buildoorOverviewUrl: "https://buildoor.frames-devnet-0.ethpandaops.io"
-  publicRpcUrl: "https://rpc.frames-devnet-0.ethpandaops.io"
+  configPath: "https://config.bogota-devnet-0.ethpandaops.io/cl/config.yaml"
+  validatorNamesInventory: "https://config.bogota-devnet-0.ethpandaops.io/api/v1/nodes/validator-ranges"
+  buildoorOverviewUrl: "https://buildoor.bogota-devnet-0.ethpandaops.io"
+  publicRpcUrl: "https://rpc.bogota-devnet-0.ethpandaops.io"
   rainbowkitProjectId: "15fe4ab4d5c0bcb6f0dc7c398301ff0e"
-  executionGenesisConfig: "https://config.frames-devnet-0.ethpandaops.io/el/genesis.json"
+  executionGenesisConfig: "https://config.bogota-devnet-0.ethpandaops.io/el/genesis.json"
   apiRequireAuth: False
   apiAuthSecret: "<path:/secrets/services/services.enc.yaml#dora | jsonPath {.api_secret}>"
   apiWhitelistedIPs: []
@@ -46,7 +46,7 @@ dora:
   executionIndexerDetailsEnabled: true
   executionIndexerTracesEnabled: True
   executionIndexerDetailsMaxSize: "100GB"
-  tracoorUrl: "https://tracoor.frames-devnet-0.ethpandaops.io"
+  tracoorUrl: "https://tracoor.bogota-devnet-0.ethpandaops.io"
   tracoorNetwork: "frames-devnet-0"
 
   

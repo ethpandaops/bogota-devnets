@@ -3,7 +3,7 @@
 network: devnet-0
 chainId: 7034189865
 
-domain: frames-devnet-0.ethpandaops.io
+domain: bogota-devnet-0.ethpandaops.io
 
 config:
   enabled: true
