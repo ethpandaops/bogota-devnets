@@ -1,10 +1,9 @@
 default_ethereum_client_images:
   ### Consensus layer clients
-  # Pinned to the unstable build tested in kurtosis so watchtower cannot roll a new
-  # unstable onto every CL between genesis and the bogota fork. TODO: bump to a
-  # kurtosis-tested unstable-<sha> before genesis; sigp/lighthouse#9878 (gas limit
-  # schedule) merged 2026-09-25 and is missing from this devnet-0 pin.
-  lighthouse: ethpandaops/lighthouse:unstable-4b1f3c2
+  # Pinned to the unstable build tested in kurtosis (bogota fork transition and
+  # finality, 2026-10-14) so watchtower cannot roll a new unstable onto every CL
+  # between genesis and the bogota fork.
+  lighthouse: ethpandaops/lighthouse:unstable-8e0aeef
   lodestar: chainsafe/lodestar:latest
   nimbus: statusim/nimbus-eth2:multiarch-latest
   prysm: gcr.io/offchainlabs/prysm/beacon-chain:latest
@@ -13,10 +12,10 @@ default_ethereum_client_images:
   grandine: ethpandaops/grandine:develop
   ### Execution layer clients
   besu: ethpandaops/besu:bogota-devnet-1
-  geth: ethpandaops/geth:bogota-devnet-1
+  geth: ethpandaops/geth:bogota-devnet-1 # TODO: rebuild, the image is 313ff90 and lacks the EIP-8250 access cost (8dfba15)
   erigon: erigontech/erigon:main-latest
   nethermind: ethpandaops/nethermind:frames-devnet-1 # no bogota-devnet-1 branch/image yet
-  reth: ethpandaops/reth:bogota-devnet-1
+  reth: ethpandaops/reth:bogota-devnet-1 # TODO: rebuild, the image is the focil-devnet-1 commit e104c36
   nimbusel: ethpandaops/nimbus-eth1:master
   ethrex: ethpandaops/ethrex:bogota-devnet-1
 
@@ -47,8 +46,9 @@ default_tooling_images:
   blobscan_indexer: blossomlabs/blobscan-indexer:latest
   dora: ethpandaops/dora:master-latest
   dugtrio: ethpandaops/dugtrio:latest
-  # TODO: bump to the first release with ethereum-genesis-generator#327 (EIP-8272 predeploy); 6.2.4 predates it.
-  ethereum_genesis_generator: ethpandaops/ethereum-genesis-generator:6.2.1
+  # master at f1dc4d8, pinned by digest: no release has #327 (EIP-8272 recent root
+  # predeploy) yet, 6.2.4 predates it. Swap for the first release that has it.
+  ethereum_genesis_generator: ethpandaops/ethereum-genesis-generator:master@sha256:55e78fcdcbb164fb4111dae0bb1487798ba0fc6076851f543fa28e0adbd3a2f5
   tracoor: ethpandaops/tracoor:latest
   ncli: status-im/nimbus-eth2:unstable
   lcli: ethpandaops/lighthouse:unstable
