@@ -3,16 +3,21 @@ node="bootnode-1"
 network="devnet-0"
 domain="ethpandaops.io"
 srv="srv"
-prefix="frames"
+prefix="bogota"
+# Node hostnames follow the inventory (devnet-0's nodes kept frames-devnet-0); the
+# kubernetes services moved to bogota-devnet-N, and ArgoCD still deploys them into
+# the frames-devnet-N namespace.
+node_network=$(awk -F= '/^ethereum_network_name=/{print $2}' ../ansible/inventories/$network/inventory.ini 2>/dev/null)
+node_network="${node_network:-$prefix-$network}"
+kube_namespace="frames-$network"
 sops_name=$(sops --decrypt ../ansible/inventories/$network/group_vars/all/all.sops.yaml | yq -r '.secret_nginx_shared_basic_auth.name')
 sops_password=$(sops --decrypt ../ansible/inventories/$network/group_vars/all/all.sops.yaml | yq -r '.secret_nginx_shared_basic_auth.password')
 sops_mnemonic=$(sops --decrypt ../ansible/inventories/$network/group_vars/all/all.sops.yaml | yq -r '.secret_genesis_mnemonic')
 rpc_prefix=$(yq -r '.ethereum_node_rpc_prefix' ../ansible/inventories/$network/group_vars/all/all.yaml)
-rpc_endpoint="${RPC_ENDPOINT:-https://$sops_name:$sops_password@rpc.$node.$prefix-$network.$domain}"
 beacon_prefix=$(yq -r '.ethereum_node_beacon_prefix' ../ansible/inventories/$network/group_vars/all/all.yaml)
-bn_endpoint="${BEACON_ENDPOINT:-https://$sops_name:$sops_password@$beacon_prefix$node.$srv.$prefix-$network.$domain}"
-rpc_endpoint="${RPC_ENDPOINT:-https://$sops_name:$sops_password@$rpc_prefix$node.$srv.$prefix-$network.$domain}"
-bootnode_endpoint="${BOOTNODE_ENDPOINT:-https://bootnode-1.$prefix-$network.$domain}"
+bn_endpoint="${BEACON_ENDPOINT:-https://$sops_name:$sops_password@$beacon_prefix$node.$srv.$node_network.$domain}"
+rpc_endpoint="${RPC_ENDPOINT:-https://$sops_name:$sops_password@$rpc_prefix$node.$srv.$node_network.$domain}"
+bootnode_endpoint="${BOOTNODE_ENDPOINT:-https://bootnode-1.$node_network.$domain}"
 assertoor_endpoint="${ASSERTOOR_ENDPOINT:-https://assertoor.$prefix-$network.$domain}"
 auth_endpoint="${AUTH_ENDPOINT:-https://auth.$prefix-$network.$domain}"
 slashing_test_id="validator-slashing-single"
@@ -432,7 +437,7 @@ for arg in "${command[@]}"; do
           --tags ethereum_inventory_web --limit bootnode playbook.yaml )
 
       # Roll Dora so it re-pulls the updated validator-names inventory.
-      kubectl --context services -n "$prefix-$network" rollout restart deployment/dora
+      kubectl --context services -n "$kube_namespace" rollout restart deployment/dora
 
       # Commit ONLY the updated mapping to master. Passing the pathspec to
       # `git commit` makes a partial commit: it takes the working-tree content of
