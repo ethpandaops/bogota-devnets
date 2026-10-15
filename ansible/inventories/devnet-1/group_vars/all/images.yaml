@@ -48,10 +48,7 @@ default_tooling_images:
   blobscan_indexer: blossomlabs/blobscan-indexer:latest
   dora: ethpandaops/dora:master-latest
   dugtrio: ethpandaops/dugtrio:latest
-  # master at f1dc4d8, pinned by digest: no release has #327 (EIP-8272 recent root
-  # predeploy) yet, 6.2.4 predates it. Swap for the first release that has it, and
-  # drop ethereum_genesis_generator_image_commit (all.yaml) with the digest.
-  ethereum_genesis_generator: ethpandaops/ethereum-genesis-generator:master@sha256:55e78fcdcbb164fb4111dae0bb1487798ba0fc6076851f543fa28e0adbd3a2f5
+  ethereum_genesis_generator: ethpandaops/ethereum-genesis-generator:6.2.5 # f1dc4d8, first release with #327 (EIP-8272 recent root predeploy)
   tracoor: ethpandaops/tracoor:latest
   ncli: status-im/nimbus-eth2:unstable
   lcli: ethpandaops/lighthouse:unstable
