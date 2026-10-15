@@ -11,12 +11,11 @@ default_ethereum_client_images:
   teku: consensys/teku:latest
   grandine: ethpandaops/grandine:develop
   ### Execution layer clients
-  # besu and nethermind run without validators until they charge the EIP-8250 keyed
-  # nonce access cost on a published bogota-devnet-1 image.
+  # besu runs without validators until it charges the EIP-8250 keyed nonce access cost.
   besu: ethpandaops/besu:bogota-devnet-1
   geth: ethpandaops/geth:bogota-devnet-1
   erigon: erigontech/erigon:main-latest
-  nethermind: ethpandaops/nethermind:frames-devnet-1 # switch to bogota-devnet-1 once the branch exists (frames-devnet-1 988cc25924 has #14600 but no image)
+  nethermind: ethpandaops/nethermind:bogota-devnet-1
   reth: ethpandaops/reth:bogota-devnet-1
   nimbusel: ethpandaops/nimbus-eth1:master
   ethrex: ethpandaops/ethrex:bogota-devnet-1
