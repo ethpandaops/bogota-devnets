@@ -14,10 +14,10 @@ This repository contains the infrastructure code used to setup ~all~ dev/testnet
 
 Status   | Network    | Links   | Ansible                                                      | Terraform | Kubernetes
 ------   | --------   | ----     |  -----                                                       | -------   | ------
- 🟢 | [devnet-0](https://bogota-devnet-0.ethpandaops.io/) | [Spec](https://notes.ethereum.org/@ethpandaops/bogota-devnet-0) / [Network config](network-configs/devnet-0) / [Inventory](https://config.bogota-devnet-0.ethpandaops.io/api/v1/nodes/inventory) / [Validator ranges](https://config.bogota-devnet-0.ethpandaops.io/api/v1/nodes/validator-ranges) | [🔗](ansible/inventories/devnet-0) | [🔗](terraform/devnet-0) | [🔗](kubernetes/devnet-0)
- 🟡 | devnet-1 (preparing) | [Spec](https://notes.ethereum.org/@ethpandaops/bogota-devnet-1) | [🔗](ansible/inventories/devnet-1) | [🔗](terraform/devnet-1) | -
+ 🔴 | devnet-0 | [Spec](https://notes.ethereum.org/@ethpandaops/bogota-devnet-0) / [Network config](network-configs/devnet-0) | - | - | [🔗](kubernetes-archive/devnet-0)
+ 🟢 | [devnet-1](https://bogota-devnet-1.ethpandaops.io/) | [Spec](https://notes.ethereum.org/@ethpandaops/bogota-devnet-1) / [Network config](network-configs/devnet-1) / [Inventory](https://config.bogota-devnet-1.ethpandaops.io/api/v1/nodes/inventory) / [Validator ranges](https://config.bogota-devnet-1.ethpandaops.io/api/v1/nodes/validator-ranges) | [🔗](ansible/inventories/devnet-1) | [🔗](terraform/devnet-1) | [🔗](kubernetes/devnet-1)
 
-Formerly `frames-devnets`. devnet-0 launched as frames-devnet-0: its kubernetes services moved to `*.bogota-devnet-0.ethpandaops.io`, while its nodes keep their `*.srv.frames-devnet-0.ethpandaops.io` hostnames.
+Formerly `frames-devnets`. devnet-0 launched as frames-devnet-0 (kubernetes services on `*.bogota-devnet-0.ethpandaops.io`, nodes on `*.srv.frames-devnet-0.ethpandaops.io`) and was torn down on 2026-10-15.
 
 # Development
 ## Version management for tools
