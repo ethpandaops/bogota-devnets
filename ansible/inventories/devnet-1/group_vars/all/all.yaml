@@ -43,11 +43,7 @@ checkpoint_sync_url_kube: https://<path:/secrets/services/services.enc.yaml#ethe
 
 # role: ethpandaops.general.ethereum_genesis
 ethereum_genesis_generator_container_image: "{{ default_tooling_images.ethereum_genesis_generator }}"
-ethereum_genesis_generator_version: "{{ ethereum_genesis_generator_container_image.split('@')[0].split(':')[-1] }}"
-# Git ref the config-example lookups below read: v<tag> for a release image. A digest-pinned branch image
-# (images.yaml) has no release tag, so name the commit it was built from; drop this with the digest pin.
-ethereum_genesis_generator_image_commit: f1dc4d8c9d1073baa34d194bccf76733b61404a7
-ethereum_genesis_generator_git_ref: "{{ ethereum_genesis_generator_image_commit | default('v' ~ ethereum_genesis_generator_version, true) }}"
+ethereum_genesis_generator_version: "{{ ethereum_genesis_generator_container_image.split(':')[-1] }}"
 ethereum_genesis_network_seed: "bogota-devnet-1"
 ethereum_genesis_chain_id: "70{{ 99999999 | random(start=10000000, seed=ethereum_genesis_network_seed) }}"
 ethereum_genesis_fork_version_suffix: "{{ 999999 | random(start=100000, seed=ethereum_genesis_network_seed) }}"
@@ -58,9 +54,9 @@ ethereum_genesis_timedelay: 0
 shadowfork_height: 0
 ethereum_genesis_mnemonic: "{{ secret_genesis_mnemonic }}"
 ethereum_genesis_generator_config_files:
-  cl/config.yaml: "{{ lookup('ansible.builtin.url', 'https://raw.githubusercontent.com/ethpandaops/ethereum-genesis-generator/{{ethereum_genesis_generator_git_ref}}/config-example/cl/config.yaml', split_lines=false) }}" # noqa yaml[line-length]
-  cl/mnemonics.yaml: "{{ lookup('ansible.builtin.url', 'https://raw.githubusercontent.com/ethpandaops/ethereum-genesis-generator/{{ethereum_genesis_generator_git_ref}}/config-example/cl/mnemonics.yaml', split_lines=false) }}" # noqa yaml[line-length]
-  el/genesis-config.yaml: "{{ lookup('ansible.builtin.url', 'https://raw.githubusercontent.com/ethpandaops/ethereum-genesis-generator/{{ethereum_genesis_generator_git_ref}}/config-example/el/genesis-config.yaml', split_lines=false) }}" # noqa yaml[line-length]
+  cl/config.yaml: "{{ lookup('ansible.builtin.url', 'https://raw.githubusercontent.com/ethpandaops/ethereum-genesis-generator/v{{ethereum_genesis_generator_version}}/config-example/cl/config.yaml', split_lines=false) }}" # noqa yaml[line-length]
+  cl/mnemonics.yaml: "{{ lookup('ansible.builtin.url', 'https://raw.githubusercontent.com/ethpandaops/ethereum-genesis-generator/v{{ethereum_genesis_generator_version}}/config-example/cl/mnemonics.yaml', split_lines=false) }}" # noqa yaml[line-length]
+  el/genesis-config.yaml: "{{ lookup('ansible.builtin.url', 'https://raw.githubusercontent.com/ethpandaops/ethereum-genesis-generator/v{{ethereum_genesis_generator_version}}/config-example/el/genesis-config.yaml', split_lines=false) }}" # noqa yaml[line-length]
   values.env: |-
     export CHAIN_ID="{{ ethereum_genesis_chain_id }}"
     export EL_AND_CL_MNEMONIC="{{ ethereum_genesis_mnemonic }}"
