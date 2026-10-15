@@ -28,12 +28,14 @@ variable "nodes" {
   description = "List of node definitions for the devnet"
   default = [
     { name = "bootnode", count = 1, cloud = "digitalocean" },
-    { name = "lighthouse-geth", count = 2, cloud = "digitalocean", supernode = true, validator_start = 0, validator_end = 200 },
-    { name = "lighthouse-nethermind", count = 2, cloud = "digitalocean", supernode = true, validator_start = 200, validator_end = 400 },
-    { name = "lighthouse-reth", count = 2, cloud = "digitalocean", supernode = true, validator_start = 400, validator_end = 600 },
-    { name = "lighthouse-ethrex", count = 2, cloud = "digitalocean", supernode = true, validator_start = 600, validator_end = 800 },
-    # besu cut a bogota-devnet-1 branch; drop this pair if it is not ready at genesis.
-    { name = "lighthouse-besu", count = 2, cloud = "digitalocean", supernode = true, validator_start = 800, validator_end = 1000 },
+    # All validators sit on the three ELs that finalized together in kurtosis (2026-10-15).
+    # nethermind and besu run without validators until their bogota-devnet-1 images pass;
+    # with 200 keys each they would hold 40% and stall finality when they fork off.
+    { name = "lighthouse-geth", count = 2, cloud = "digitalocean", supernode = true, validator_start = 0, validator_end = 334 },
+    { name = "lighthouse-nethermind", count = 2, cloud = "digitalocean", supernode = true },
+    { name = "lighthouse-reth", count = 2, cloud = "digitalocean", supernode = true, validator_start = 334, validator_end = 668 },
+    { name = "lighthouse-ethrex", count = 2, cloud = "digitalocean", supernode = true, validator_start = 668, validator_end = 1000 },
+    { name = "lighthouse-besu", count = 2, cloud = "digitalocean", supernode = true },
   ]
 
   validation {

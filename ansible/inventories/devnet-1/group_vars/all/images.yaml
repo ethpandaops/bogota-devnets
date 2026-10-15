@@ -11,13 +11,16 @@ default_ethereum_client_images:
   teku: consensys/teku:latest
   grandine: ethpandaops/grandine:develop
   ### Execution layer clients
+  # geth, reth and ethrex are pinned to the commits that finalized together in kurtosis
+  # (2026-10-15). besu and nethermind run without validators until they charge the
+  # EIP-8250 keyed nonce access cost on a published bogota-devnet-1 image.
   besu: ethpandaops/besu:bogota-devnet-1
-  geth: ethpandaops/geth:bogota-devnet-1 # TODO: rebuild, the image is 313ff90 and lacks the EIP-8250 access cost (8dfba15)
+  geth: ethpandaops/geth:bogota-devnet-1-8dfba15
   erigon: erigontech/erigon:main-latest
-  nethermind: ethpandaops/nethermind:frames-devnet-1 # no bogota-devnet-1 branch/image yet
-  reth: ethpandaops/reth:bogota-devnet-1 # TODO: rebuild, the image is the focil-devnet-1 commit e104c36
+  nethermind: ethpandaops/nethermind:frames-devnet-1 # switch to bogota-devnet-1 once the branch exists (frames-devnet-1 988cc25924 has #14600 but no image)
+  reth: ethpandaops/reth:bogota-devnet-1-7bde440
   nimbusel: ethpandaops/nimbus-eth1:master
-  ethrex: ethpandaops/ethrex:bogota-devnet-1
+  ethrex: ethpandaops/ethrex:bogota-devnet-1-325a9be
 
 default_tooling_images:
   mev_boost: ethpandaops/mev-boost:develop
