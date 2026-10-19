@@ -136,7 +136,7 @@
       "mismatched": 0,
       "missing": 0,
       "submission_warnings": 0,
-      "max_sampled_pending": 50,
+      "max_sampled_pending": 51,
       "average_confirmed_tx_per_block": 95,
       "note": "Separate canary with fresh wallets against all existing RPCs; existing main scenario continued unchanged. Three-minute sample is not a long soak."
     },
@@ -176,5 +176,6 @@
     "remaining_fixes_deployed": false
   },
   "build_run": "https://github.com/ethpandaops/spamoor/actions/runs/39273200189",
-  "nimbus_readiness": "2026-10-19-nimbus-readiness/readiness.json"
+  "nimbus_readiness": "2026-10-19-nimbus-readiness/readiness.json",
+  "configuration_note": "With one pending frame transaction per sender, 500 wallets bound steady-state submissions to roughly 500 per block despite throughput=1000. The requested rate remains unchanged; increasing wallet count is a separate workload decision."
 }

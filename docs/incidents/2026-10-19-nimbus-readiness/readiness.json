@@ -55,5 +55,6 @@
     "erigon": "No Bogota-ready branch/image confirmed during this check.",
     "ethereumjs": "No Bogota-ready branch/image confirmed during this check.",
     "besu": "Existing bogota-devnet-1 nodes both stalled at block 1787; do not expand until client sync failure is resolved."
-  }
+  },
+  "bug_report": "Nimbus EL bogota-devnet-1 (8747b0e8) rejects valid non-blob frame transactions with txErrorInvalidBlob because its transaction pool requires a blob wrapper for every EIP-8141 transaction. The same rejection disconnects peers and breaks transaction gossip, even though Nimbus successfully imports those transactions in blocks. Blob-wrapper validation needs to distinguish frames with and without blobs; this is a client-side onboarding blocker."
 }
