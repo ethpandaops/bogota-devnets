@@ -1,0 +1,58 @@
+{
+  "network": "bogota-devnet-1",
+  "tested_at": "2026-10-19",
+  "result": "blocked for live onboarding",
+  "nimbus": {
+    "image": "ethpandaops/nimbus-eth1:bogota-devnet-1",
+    "digest": "sha256:936db0e44fbaf020503a455f31a1a0cd8aaffe637fb39fa791cb9e29273b43fb",
+    "version": "Nimbus/v0.4.3-8747b0e8/linux-amd64/Nim-2.2.12",
+    "source": "https://github.com/status-im/nimbus-eth1/commit/8747b0e86e95e1d15c114b642d5f193eec31cc7f"
+  },
+  "tested_with": {
+    "geth": "8dfba15f",
+    "lighthouse": "8e0aeef",
+    "spamoor": "9579397; separate scheduling canary e9b66be"
+  },
+  "positive_evidence": [
+    "Nimbus imports Geth-produced type-0x6 blocks with identical hashes and state roots.",
+    "Both consensus clients report non-optimistic heads and execution online."
+  ],
+  "blocking_issue": {
+    "id": "NET-002",
+    "summary": "Non-blob frame transactions fail blob wrapper validation and cause peer disconnects",
+    "rpc_response": {
+      "jsonrpc": "2.0",
+      "error": {
+        "code": -32000,
+        "message": "`eth_sendRawTransaction` raised an exception",
+        "data": "txErrorInvalidBlob"
+      },
+      "id": 1
+    },
+    "root_cause": "tx_desc.nim applies validateBlobTransactionWrapper to TxEip8141 unconditionally; a frame without blobs has no blobsBundle, so validation fails. The ETH broadcast path disconnects peers on txErrorInvalidBlob.",
+    "source_locations": [
+      "https://github.com/status-im/nimbus-eth1/blob/8747b0e86e95e1d15c114b642d5f193eec31cc7f/execution_chain/core/tx_pool/tx_desc.nim#L248",
+      "https://github.com/status-im/nimbus-eth1/blob/8747b0e86e95e1d15c114b642d5f193eec31cc7f/execution_chain/core/tx_pool/tx_desc.nim#L443",
+      "https://github.com/status-im/nimbus-eth1/blob/8747b0e86e95e1d15c114b642d5f193eec31cc7f/execution_chain/sync/wire_protocol/eth/eth_broadcast.nim#L379"
+    ],
+    "expected": "Accept a valid non-blob frame without requiring a blob wrapper; continue validating wrappers and proofs for transactions that actually carry blobs.",
+    "reproduction": [
+      "Run the attached Kurtosis configuration with ethereum-package.",
+      "Wait until Heze epoch 1 and send valid frametx traffic to both clients.",
+      "Observe Nimbus eth_sendRawTransaction error.data=txErrorInvalidBlob while Geth accepts the frame.",
+      "Observe Nimbus disconnect Geth and both net_peerCount values fall to zero.",
+      "The attached transaction is later included by Geth and imported by Nimbus; see both receipts."
+    ]
+  },
+  "onboarding": {
+    "terraform_applied": false,
+    "live_node_created": false,
+    "images_yaml": "ethpandaops/nimbus-eth1:bogota-devnet-1",
+    "next_gate": "Client-side fix plus RPC, gossip, block import and finality retest before provisioning an observer."
+  },
+  "other_el_readiness": {
+    "erigon": "No Bogota-ready branch/image confirmed during this check.",
+    "ethereumjs": "No Bogota-ready branch/image confirmed during this check.",
+    "besu": "Existing bogota-devnet-1 nodes both stalled at block 1787; do not expand until client sync failure is resolved."
+  }
+}

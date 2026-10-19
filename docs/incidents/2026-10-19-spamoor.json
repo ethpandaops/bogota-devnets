@@ -1,0 +1,152 @@
+{
+  "network": "bogota-devnet-1",
+  "date": "2026-10-19",
+  "kubernetes_context": "services",
+  "namespace": "frames-devnet-1",
+  "spammer_id": 100,
+  "original_version": "aed872d",
+  "status": "Upstream nonce fix deployed; confirmations restored but pending limit still reached. Remaining Spamoor fixes in draft PR; Nimbus onboarding blocked by client txpool defect.",
+  "issues": [
+    {
+      "id": "SPAM-001",
+      "severity": "high",
+      "summary": "Keyed frame RPC nonce decoded as zero",
+      "evidence": "Same confirmed nonce-70 transaction from ethrex/nethermind/reth decoded as nonce 0. Clients expose nonce rather than nonceSeq. Confirmation processing sets confirmedTxCount to decoded nonce + 1.",
+      "impact": "Confirmation waiters fail to resolve; scenario exhausts max_pending=5000. A restart temporarily clears waiters.",
+      "status": "Fixed upstream in PR #302; live pod now runs 9579397 after restart pulled current master-latest. Draft PR #306 rebased to retain upstream implementation."
+    },
+    {
+      "id": "SPAM-002",
+      "severity": "medium",
+      "summary": "Frame executionGas/stateGas RPC fields ignored",
+      "evidence": "Nethermind and reth frames decode with zero execution gas; reconstructed transaction hash differs from RPC hash. Geth uses the same field names.",
+      "status": "Fixed in draft PR #306; gas alias tests and four-client reconstructed hashes pass. Not deployed."
+    },
+    {
+      "id": "SPAM-003",
+      "severity": "medium",
+      "summary": "Empty Geth signature signer breaks typed frame decoding",
+      "evidence": "Geth signer \"0x\" fails common.Address unmarshalling and silently falls back to UnknownTx.",
+      "status": "Fixed in draft PR #306 with byte-string signer decoding; Geth fixture reconstructs exact hash. Nimbus also returns empty signer bytes. Not deployed."
+    },
+    {
+      "id": "SPAM-004",
+      "severity": "high",
+      "summary": "frametx pipelines multiple pending transactions per sender",
+      "evidence": "throughput=1000, max_wallets=500, max_pending=0 resolves to 5000 concurrent attempts. Logs show sender already has a pending frame transaction and nonce-too-high rejection.",
+      "status": "Per-wallet serialization proposed in draft PR #306, based on EIP-8141 acceptance rule 7. Not deployed; local integration verification running."
+    },
+    {
+      "id": "SPAM-005",
+      "severity": "medium",
+      "summary": "Pending log is a nonce-distance estimate, not a mempool count",
+      "evidence": "Log reported pending=430278; sample client mempools held roughly 116-140 pending transactions. Incorrect decoded confirmations inflate the estimate further.",
+      "status": "decoder fix addresses corruption; metric remains a nonce-distance estimate"
+    },
+    {
+      "id": "NET-001",
+      "severity": "high",
+      "summary": "Both Besu nodes stalled at block 1787",
+      "evidence": "Spamoor API reports both Besu endpoints ready=false at block 1787 while nine other endpoints advance above 28500. Direct eth_blockNumber confirms 1787 on both; eth_syncing incorrectly suggests no active sync (false).",
+      "status": "open; separate existing client synchronization failure, no node changes made"
+    },
+    {
+      "id": "SPAM-006",
+      "severity": "medium",
+      "summary": "Restart reuses wallets whose transactions remain in mempools",
+      "evidence": "Five replacement-underpriced warnings immediately after 14:27:56 UTC scenario initialization; later nonce-too-high and pending-sender errors.",
+      "status": "Restart clears local waiters but can collide with transactions already in client pools. Upstream decoder fix deployed; sender serialization remains under test. Do not increase fees based solely on these errors."
+    },
+    {
+      "id": "OPS-001",
+      "severity": "low",
+      "summary": "Unused do-sfo3-services-sfo3 kube context has expired credentials",
+      "evidence": "Read-only discovery returned authentication required. The services context works.",
+      "status": "unrelated tooling issue; used services context"
+    },
+    {
+      "id": "SPAM-007",
+      "severity": "medium",
+      "summary": "Nethermind submission underpriced warnings",
+      "evidence": "30 transaction-underpriced warnings in the sampled restart window, in addition to five replacement-underpriced warnings.",
+      "status": "observed; not proven to be a separate client defect, recheck after recovery"
+    },
+    {
+      "id": "OPS-002",
+      "severity": "medium",
+      "summary": "Live master-latest image was stale",
+      "evidence": "Original pod ran aed872d while upstream #302 was already merged. Restart pulled 9579397. Mutable tags do not update an already running pod.",
+      "status": "Current upstream deployed; version verified through public API."
+    },
+    {
+      "id": "OPS-003",
+      "severity": "low",
+      "summary": "GitOps reverted direct Spamoor image override",
+      "evidence": "A direct StatefulSet image change to bogota-frame-recovery-a32edd3 was reconciled back to master-latest. The custom build was not durably deployed.",
+      "status": "No further direct overrides; old custom build superseded by rebased draft e9b66be."
+    },
+    {
+      "id": "OPS-004",
+      "severity": "low",
+      "summary": "Authentication JWKS fetch briefly returned HTTP 520 during startup",
+      "evidence": "Pod startup at 14:43:55 UTC was delayed by an external auth JWKS request; service subsequently started and scenario resumed at 14:45:36 UTC.",
+      "status": "Transient; recovered without authentication changes."
+    },
+    {
+      "id": "NET-002",
+      "severity": "high",
+      "summary": "Nimbus rejects non-blob frame transactions as invalid blobs and disconnects peers",
+      "evidence": "Nimbus bogota-devnet-1 8747b0e8 rejects a Geth-accepted type-0x6 transaction with RPC error data txErrorInvalidBlob. tx_desc.nim:443 applies blob-wrapper validation to every TxEip8141; validateBlobTransactionWrapper returns tx wrapper is none for non-blob frames. eth_broadcast.nim:379 disconnects on this error. Both local peers dropped to net_peerCount=0 after frame traffic.",
+      "status": "Client-side onboarding blocker; no Spamoor workaround and no live Nimbus node provisioned. See Nimbus readiness artifact."
+    },
+    {
+      "id": "SPAM-008",
+      "severity": "low",
+      "summary": "Capability predeploy detection can start frame traffic before activation",
+      "evidence": "Local test installs predeploys at genesis but activates Heze at epoch 1. frametx starts before activation and Geth reports not Bogota. After activation Geth accepts frames.",
+      "status": "Observed in local test; separate from live devnet stall. No error-string workaround introduced."
+    },
+    {
+      "id": "OPS-005",
+      "severity": "low",
+      "summary": "Cached mutable Geth image invalidated first local compatibility run",
+      "evidence": "Initial local tag resolved to older cached 313ff90, not live 8dfba15f. Discarded that run and recreated only the task enclave using image digests.",
+      "status": "Corrected test provenance; Nimbus images.yaml retains user-requested bogota-devnet-1 tag."
+    }
+  ],
+  "verification": {
+    "tests": [
+      "go test ./txtypes ./spamoor ./scenario ./scenarios/frametx",
+      "go vet ./txtypes ./spamoor ./scenario ./scenarios/frametx",
+      "scripts/check-core-imports.sh",
+      "go test -race ./txtypes ./scenarios/frametx",
+      "helm lint kubernetes/devnet-1/spamoor",
+      "helm template spamoor kubernetes/devnet-1/spamoor"
+    ],
+    "rpc_fixture_transaction": "0x7c5979486bb8790c6edae76379b0e046b4c72ccaed8c504f078950547eb68374",
+    "rpc_fixture_block": 28508
+  },
+  "changes": [
+    {
+      "action": "Spamoor pod restarted; current upstream master-latest pulled",
+      "version": "9579397",
+      "scenario_config_changed": false
+    },
+    {
+      "action": "Nimbus EL image configuration changed",
+      "image": "ethpandaops/nimbus-eth1:bogota-devnet-1",
+      "provisioned": false
+    }
+  ],
+  "source_pr": "https://github.com/ethpandaops/spamoor/pull/306",
+  "source_commit": "e9b66be",
+  "references": [
+    "https://eips.ethereum.org/EIPS/eip-8141#acceptance-algorithm",
+    "https://github.com/ethpandaops/spamoor/pull/302"
+  ],
+  "current_version": "9579397",
+  "monitoring": {
+    "upstream_recovery": "Blocks 28576 onward confirm again. Pending subsequently reached about 5000. Block 28599 confirmed 1095, block 28602 confirmed 105; recovery is not yet considered durable.",
+    "remaining_fixes_deployed": false
+  }
+}
