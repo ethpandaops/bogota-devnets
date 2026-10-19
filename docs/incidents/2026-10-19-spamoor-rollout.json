@@ -1,0 +1,176 @@
+{
+  "captured_at_utc": "2026-10-19T15:12:11.890693+00:00",
+  "image": "ethpandaops/spamoor:bogota-frame-recovery-e9b66be",
+  "image_digest": "sha256:e4c4d048170dde758d90c79c6c036b1417183f796e62dc1947895267ba16a144",
+  "version": "e9b66be",
+  "config_pr": "https://github.com/ethpandaops/bogota-devnets/pull/10",
+  "config_commit": "09541ed1bb3561cf971aeae2ffbaefc0e53451f8",
+  "pod_created_at_utc": "2026-10-19T15:06:22Z",
+  "scenario_resumed_at_utc": "2026-10-19T15:07:10Z",
+  "scenario_configuration_changed": false,
+  "client_endpoints_changed": false,
+  "blocks": [
+    {
+      "number": 28683,
+      "submitted": 307,
+      "pending": 278,
+      "confirmed": 62
+    },
+    {
+      "number": 28684,
+      "submitted": 255,
+      "pending": 10,
+      "confirmed": 498
+    },
+    {
+      "number": 28685,
+      "submitted": 498,
+      "pending": 11,
+      "confirmed": 495
+    },
+    {
+      "number": 28686,
+      "submitted": 495,
+      "pending": 8,
+      "confirmed": 492
+    },
+    {
+      "number": 28687,
+      "submitted": 492,
+      "pending": 16,
+      "confirmed": 500
+    },
+    {
+      "number": 28688,
+      "submitted": 500,
+      "pending": 8,
+      "confirmed": 496
+    },
+    {
+      "number": 28689,
+      "submitted": 496,
+      "pending": 366,
+      "confirmed": 495
+    },
+    {
+      "number": 28690,
+      "submitted": 495,
+      "pending": 328,
+      "confirmed": 492
+    },
+    {
+      "number": 28691,
+      "submitted": 492,
+      "pending": 17,
+      "confirmed": 485
+    },
+    {
+      "number": 28692,
+      "submitted": 485,
+      "pending": 20,
+      "confirmed": 483
+    },
+    {
+      "number": 28693,
+      "submitted": 483,
+      "pending": 318,
+      "confirmed": 485
+    },
+    {
+      "number": 28694,
+      "submitted": 485,
+      "pending": 444,
+      "confirmed": 482
+    },
+    {
+      "number": 28695,
+      "submitted": 482,
+      "pending": 23,
+      "confirmed": 480
+    },
+    {
+      "number": 28696,
+      "submitted": 480,
+      "pending": 32,
+      "confirmed": 478
+    },
+    {
+      "number": 28697,
+      "submitted": 478,
+      "pending": 31,
+      "confirmed": 477
+    },
+    {
+      "number": 28698,
+      "submitted": 477,
+      "pending": 464,
+      "confirmed": 477
+    },
+    {
+      "number": 28699,
+      "submitted": 477,
+      "pending": 165,
+      "confirmed": 479
+    },
+    {
+      "number": 28700,
+      "submitted": 479,
+      "pending": 26,
+      "confirmed": 481
+    },
+    {
+      "number": 28701,
+      "submitted": 481,
+      "pending": 464,
+      "confirmed": 483
+    },
+    {
+      "number": 28702,
+      "submitted": 483,
+      "pending": 224,
+      "confirmed": 499
+    },
+    {
+      "number": 28703,
+      "submitted": 499,
+      "pending": 300,
+      "confirmed": 499
+    },
+    {
+      "number": 28704,
+      "submitted": 499,
+      "pending": 17,
+      "confirmed": 499
+    },
+    {
+      "number": 28705,
+      "submitted": 499,
+      "pending": 409,
+      "confirmed": 499
+    },
+    {
+      "number": 28706,
+      "submitted": 499,
+      "pending": 20,
+      "confirmed": 499
+    },
+    {
+      "number": 28707,
+      "submitted": 499,
+      "pending": 7,
+      "confirmed": 500
+    }
+  ],
+  "total_confirmed": 11815,
+  "last_20_blocks_average_confirmed": 488.4,
+  "max_sampled_pending": 464,
+  "warning_count": 41,
+  "warning_messages": {
+    "could not send frame transaction: replacement transaction underpriced": 29,
+    "could not send frame transaction: Invalid params: Attempted to replace a pooled transaction with an underpriced transaction": 12
+  },
+  "last_warning_utc": "2026-10-19T15:12:06Z",
+  "nonce_too_high_count": 0,
+  "nonce_mismatch_count": 0,
+  "limitations": "Short post-rollout observation, not a long soak. Replacement-underpriced warnings remain tracked; their full cause is not established."
+}

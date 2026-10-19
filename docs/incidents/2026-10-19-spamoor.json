@@ -5,7 +5,7 @@
   "namespace": "frames-devnet-1",
   "spammer_id": 100,
   "original_version": "aed872d",
-  "status": "Upstream nonce fix deployed. Remaining Spamoor decoder/scheduling fixes passed CI and canaries; GitOps image pin prepared. Nimbus onboarding blocked by client txpool defect.",
+  "status": "Recovery build deployed through GitOps and confirmations sustained. Replacement-price warnings remain tracked; Nimbus onboarding blocked by client txpool/gossip defect.",
   "issues": [
     {
       "id": "SPAM-001",
@@ -20,21 +20,21 @@
       "severity": "medium",
       "summary": "Frame executionGas/stateGas RPC fields ignored",
       "evidence": "Nethermind and reth frames decode with zero execution gas; reconstructed transaction hash differs from RPC hash. Geth uses the same field names.",
-      "status": "Fixed in PR #306; gas alias tests and four-client reconstructed hashes pass. Not deployed."
+      "status": "Fixed in PR #306 and deployed as e9b66be. Gas alias tests and four-client reconstructed hashes pass."
     },
     {
       "id": "SPAM-003",
       "severity": "medium",
       "summary": "Empty Geth signature signer breaks typed frame decoding",
       "evidence": "Geth signer \"0x\" fails common.Address unmarshalling and silently falls back to UnknownTx.",
-      "status": "Fixed in PR #306 with byte-string signer decoding; Geth fixture reconstructs exact hash. Nimbus also returns empty signer bytes. Not deployed."
+      "status": "Fixed in PR #306 and deployed as e9b66be. Empty signer bytes preserved; exact Geth hash reconstruction passes. Nimbus uses the same empty-signer representation."
     },
     {
       "id": "SPAM-004",
       "severity": "high",
       "summary": "frametx pipelines multiple pending transactions per sender",
       "evidence": "throughput=1000, max_wallets=500, max_pending=0 resolves to 5000 concurrent attempts. Logs show sender already has a pending frame transaction and nonce-too-high rejection.",
-      "status": "Per-wallet serialization in PR #306 passed local integration and a live canary. Follows EIP-8141 acceptance rule 7; no client-error matching or validation bypass. Deployment pending."
+      "status": "Per-wallet serialization from PR #306 deployed as e9b66be after CI and canaries. Existing 500-wallet scenario sustains confirmations with pending bounded by wallet count. No client-error matching or validation bypass."
     },
     {
       "id": "SPAM-005",
@@ -55,7 +55,9 @@
       "severity": "medium",
       "summary": "Restart reuses wallets whose transactions remain in mempools",
       "evidence": "Five replacement-underpriced warnings immediately after 14:27:56 UTC scenario initialization; later nonce-too-high and pending-sender errors.",
-      "status": "Restart clears local waiters but can collide with transactions already in client pools. Upstream decoder fix deployed; sender serialization remains under test. Do not increase fees based solely on these errors."
+      "status": "Open observation: replacement-underpriced warnings recurred after rollout, while confirmation throughput recovered. Prior pool contents and cross-client timing are possible contributors but not established causes. No fee bump, error suppression or client exclusion added.",
+      "post_rollout_warning_count": 41,
+      "last_warning_utc": "2026-10-19T15:12:06Z"
     },
     {
       "id": "OPS-001",
@@ -69,14 +71,14 @@
       "severity": "medium",
       "summary": "Nethermind submission underpriced warnings",
       "evidence": "30 transaction-underpriced warnings in the sampled restart window, in addition to five replacement-underpriced warnings.",
-      "status": "observed; not proven to be a separate client defect, recheck after recovery"
+      "status": "Not observed in the post-rollout sample. Initial cause not established; no fee change or client-specific workaround added."
     },
     {
       "id": "OPS-002",
       "severity": "medium",
       "summary": "Live master-latest image was stale",
       "evidence": "Original pod ran aed872d while upstream #302 was already merged. Restart pulled 9579397. Mutable tags do not update an already running pod.",
-      "status": "Current upstream deployed; version verified through public API."
+      "status": "Current recovery build is pinned to an explicit commit-tagged image in both Ansible source and generated Helm values."
     },
     {
       "id": "OPS-003",
@@ -122,7 +124,8 @@
       "go test -race ./txtypes ./scenarios/frametx",
       "helm lint kubernetes/devnet-1/spamoor",
       "helm template spamoor kubernetes/devnet-1/spamoor",
-      "Full GitHub CI: go test -race -vet=off ./..., go vet ./..., staticcheck, generated symbols/docs, CLI and import builds"
+      "Full GitHub CI: go test -race -vet=off ./..., go vet ./..., staticcheck, generated symbols/docs, CLI and import builds",
+      "Configuration CI: Ansible lint and Helm lint passed; local images.yaml Ansible lint passed"
     ],
     "rpc_fixture_transaction": "0x7c5979486bb8790c6edae76379b0e046b4c72ccaed8c504f078950547eb68374",
     "rpc_fixture_block": 28508,
@@ -162,6 +165,12 @@
       "action": "Nimbus EL image configuration changed",
       "image": "ethpandaops/nimbus-eth1:bogota-devnet-1",
       "provisioned": false
+    },
+    {
+      "action": "GitOps rollout of CI- and canary-tested frame decoder/scheduling fixes",
+      "version": "e9b66be",
+      "config_pr": "https://github.com/ethpandaops/bogota-devnets/pull/10",
+      "scenario_config_changed": false
     }
   ],
   "source_pr": "https://github.com/ethpandaops/spamoor/pull/306",
@@ -170,12 +179,22 @@
     "https://eips.ethereum.org/EIPS/eip-8141#acceptance-algorithm",
     "https://github.com/ethpandaops/spamoor/pull/302"
   ],
-  "current_version": "9579397",
+  "current_version": "e9b66be",
   "monitoring": {
-    "upstream_recovery": "Blocks 28576 onward confirm again. Pending subsequently reached about 5000. Block 28599 confirmed 1095, block 28602 confirmed 105; recovery is not yet considered durable.",
-    "remaining_fixes_deployed": false
+    "remaining_fixes_deployed": true,
+    "post_rollout_summary": {
+      "confirmed": 11815,
+      "blocks": 25,
+      "last_20_blocks_average_confirmed": 488.4,
+      "max_sampled_pending": 464,
+      "nonce_too_high": 0,
+      "nonce_mismatch": 0
+    },
+    "long_soak_completed": false
   },
   "build_run": "https://github.com/ethpandaops/spamoor/actions/runs/39273200189",
   "nimbus_readiness": "2026-10-19-nimbus-readiness/readiness.json",
-  "configuration_note": "With one pending frame transaction per sender, 500 wallets bound steady-state submissions to roughly 500 per block despite throughput=1000. The requested rate remains unchanged; increasing wallet count is a separate workload decision."
+  "configuration_note": "With one pending frame transaction per sender, 500 wallets bound steady-state submissions to roughly 500 per block despite throughput=1000. The requested rate remains unchanged; increasing wallet count is a separate workload decision.",
+  "config_pr": "https://github.com/ethpandaops/bogota-devnets/pull/10",
+  "rollout_evidence": "2026-10-19-spamoor-rollout.json"
 }
