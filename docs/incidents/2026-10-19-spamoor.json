@@ -5,7 +5,7 @@
   "namespace": "frames-devnet-1",
   "spammer_id": 100,
   "original_version": "aed872d",
-  "status": "Upstream nonce fix deployed; confirmations restored but pending limit still reached. Remaining Spamoor fixes in draft PR; Nimbus onboarding blocked by client txpool defect.",
+  "status": "Upstream nonce fix deployed. Remaining Spamoor decoder/scheduling fixes passed CI and canaries; GitOps image pin prepared. Nimbus onboarding blocked by client txpool defect.",
   "issues": [
     {
       "id": "SPAM-001",
@@ -20,21 +20,21 @@
       "severity": "medium",
       "summary": "Frame executionGas/stateGas RPC fields ignored",
       "evidence": "Nethermind and reth frames decode with zero execution gas; reconstructed transaction hash differs from RPC hash. Geth uses the same field names.",
-      "status": "Fixed in draft PR #306; gas alias tests and four-client reconstructed hashes pass. Not deployed."
+      "status": "Fixed in PR #306; gas alias tests and four-client reconstructed hashes pass. Not deployed."
     },
     {
       "id": "SPAM-003",
       "severity": "medium",
       "summary": "Empty Geth signature signer breaks typed frame decoding",
       "evidence": "Geth signer \"0x\" fails common.Address unmarshalling and silently falls back to UnknownTx.",
-      "status": "Fixed in draft PR #306 with byte-string signer decoding; Geth fixture reconstructs exact hash. Nimbus also returns empty signer bytes. Not deployed."
+      "status": "Fixed in PR #306 with byte-string signer decoding; Geth fixture reconstructs exact hash. Nimbus also returns empty signer bytes. Not deployed."
     },
     {
       "id": "SPAM-004",
       "severity": "high",
       "summary": "frametx pipelines multiple pending transactions per sender",
       "evidence": "throughput=1000, max_wallets=500, max_pending=0 resolves to 5000 concurrent attempts. Logs show sender already has a pending frame transaction and nonce-too-high rejection.",
-      "status": "Per-wallet serialization proposed in draft PR #306, based on EIP-8141 acceptance rule 7. Not deployed; local integration verification running."
+      "status": "Per-wallet serialization in PR #306 passed local integration and a live canary. Follows EIP-8141 acceptance rule 7; no client-error matching or validation bypass. Deployment pending."
     },
     {
       "id": "SPAM-005",
@@ -121,10 +121,36 @@
       "scripts/check-core-imports.sh",
       "go test -race ./txtypes ./scenarios/frametx",
       "helm lint kubernetes/devnet-1/spamoor",
-      "helm template spamoor kubernetes/devnet-1/spamoor"
+      "helm template spamoor kubernetes/devnet-1/spamoor",
+      "Full GitHub CI: go test -race -vet=off ./..., go vet ./..., staticcheck, generated symbols/docs, CLI and import builds"
     ],
     "rpc_fixture_transaction": "0x7c5979486bb8790c6edae76379b0e046b4c72ccaed8c504f078950547eb68374",
-    "rpc_fixture_block": 28508
+    "rpc_fixture_block": 28508,
+    "live_canary": {
+      "commit": "e9b66be",
+      "start_utc": "2026-10-19T14:56:02Z",
+      "end_utc": "2026-10-19T14:59:02Z",
+      "target_tx_per_block": 100,
+      "wallets": 100,
+      "frame_receipts_verified": 1330,
+      "mismatched": 0,
+      "missing": 0,
+      "submission_warnings": 0,
+      "max_sampled_pending": 50,
+      "average_confirmed_tx_per_block": 95,
+      "note": "Separate canary with fresh wallets against all existing RPCs; existing main scenario continued unchanged. Three-minute sample is not a long soak."
+    },
+    "local_canary": {
+      "commit": "e9b66be",
+      "target_tx_per_block": 1000,
+      "wallets": 500,
+      "duration_minutes": 4,
+      "frame_receipts_verified": 9475,
+      "mismatched": 0,
+      "missing": 0,
+      "nimbus_errors_visible": true,
+      "max_sampled_pending": 500
+    }
   },
   "changes": [
     {
@@ -139,7 +165,7 @@
     }
   ],
   "source_pr": "https://github.com/ethpandaops/spamoor/pull/306",
-  "source_commit": "e9b66be",
+  "source_commit": "e9b66be4c7ddc9a0979780e91c80444f0edc62a5",
   "references": [
     "https://eips.ethereum.org/EIPS/eip-8141#acceptance-algorithm",
     "https://github.com/ethpandaops/spamoor/pull/302"
@@ -148,5 +174,7 @@
   "monitoring": {
     "upstream_recovery": "Blocks 28576 onward confirm again. Pending subsequently reached about 5000. Block 28599 confirmed 1095, block 28602 confirmed 105; recovery is not yet considered durable.",
     "remaining_fixes_deployed": false
-  }
+  },
+  "build_run": "https://github.com/ethpandaops/spamoor/actions/runs/39273200189",
+  "nimbus_readiness": "2026-10-19-nimbus-readiness/readiness.json"
 }

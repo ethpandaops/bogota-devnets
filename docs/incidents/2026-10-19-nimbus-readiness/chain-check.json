@@ -1,0 +1,97 @@
+{
+  "samples": 58,
+  "all_sampled_heads_and_state_roots_match": true,
+  "first_sample": {
+    "at": "2026-10-19T14:48:41.188787+00:00",
+    "heads": [
+      19,
+      19
+    ],
+    "compared_block": 19,
+    "hashes": [
+      "0xb56a92be02383c14809efb8051e6d8fcd7f975a051275585c8e2df02725d9750",
+      "0xb56a92be02383c14809efb8051e6d8fcd7f975a051275585c8e2df02725d9750"
+    ],
+    "state_roots": [
+      "0x5f9847898a1342922ebd8210acd0ace259b11488602c896cb28055552440d8fb",
+      "0x5f9847898a1342922ebd8210acd0ace259b11488602c896cb28055552440d8fb"
+    ],
+    "tx_counts": [
+      0,
+      0
+    ],
+    "finalized": [
+      {
+        "epoch": "0",
+        "root": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      {
+        "epoch": "0",
+        "root": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    ],
+    "match": true
+  },
+  "last_sample": {
+    "at": "2026-10-19T15:00:06.035799+00:00",
+    "heads": [
+      133,
+      133
+    ],
+    "compared_block": 133,
+    "hashes": [
+      "0x20bae59d38524c43a83195d45cd0f7818b6139796e7aea46d9e917664aaaa8c1",
+      "0x20bae59d38524c43a83195d45cd0f7818b6139796e7aea46d9e917664aaaa8c1"
+    ],
+    "state_roots": [
+      "0xa0a6468154c6cb9ba21125ddcbe097607e60c33b5a4b9e224296d00a2d2d00cb",
+      "0xa0a6468154c6cb9ba21125ddcbe097607e60c33b5a4b9e224296d00a2d2d00cb"
+    ],
+    "tx_counts": [
+      0,
+      0
+    ],
+    "finalized": [
+      {
+        "epoch": "2",
+        "root": "0xe8ffe7f9207fc83617f4d790389b28d6c533a0ec60400711094de4d8d4375d28"
+      },
+      {
+        "epoch": "2",
+        "root": "0xe8ffe7f9207fc83617f4d790389b28d6c533a0ec60400711094de4d8d4375d28"
+      }
+    ],
+    "match": true
+  },
+  "sample_with_frame_load": {
+    "at": "2026-10-19T14:56:29.734641+00:00",
+    "heads": [
+      97,
+      97
+    ],
+    "compared_block": 97,
+    "hashes": [
+      "0x36c0622f1fd9d0b795e820ec7bed47709d5b05d20b8d842a5e8abe7bb7da05bc",
+      "0x36c0622f1fd9d0b795e820ec7bed47709d5b05d20b8d842a5e8abe7bb7da05bc"
+    ],
+    "state_roots": [
+      "0x7db5675377920529a5830a002bc487dcb7b78ec9850460c2e54a949593e54b86",
+      "0x7db5675377920529a5830a002bc487dcb7b78ec9850460c2e54a949593e54b86"
+    ],
+    "tx_counts": [
+      494,
+      494
+    ],
+    "finalized": [
+      {
+        "epoch": "0",
+        "root": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      {
+        "epoch": "0",
+        "root": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    ],
+    "match": true
+  }
+}

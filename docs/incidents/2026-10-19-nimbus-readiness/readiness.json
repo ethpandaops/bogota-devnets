@@ -15,7 +15,8 @@
   },
   "positive_evidence": [
     "Nimbus imports Geth-produced type-0x6 blocks with identical hashes and state roots.",
-    "Both consensus clients report non-optimistic heads and execution online."
+    "Both consensus clients report non-optimistic heads and execution online.",
+    "Both Lighthouse nodes finalized epoch 2 with identical checkpoint roots; sampled execution block hashes and state roots match through block 133. This does not resolve the RPC/gossip blocker."
   ],
   "blocking_issue": {
     "id": "NET-002",
