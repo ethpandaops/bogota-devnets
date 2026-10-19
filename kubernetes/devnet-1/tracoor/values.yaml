@@ -3,8 +3,8 @@ tracoor-single:
   fullnameOverride: "tracoor"
   image:
     repository: ethpandaops/tracoor
-    tag: latest
-    pullPolicy: Always
+    tag: 0.1.2-debian
+    pullPolicy: IfNotPresent
   resources:
     requests:
       cpu: 1000m
