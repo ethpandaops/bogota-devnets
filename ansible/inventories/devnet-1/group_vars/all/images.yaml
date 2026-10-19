@@ -17,7 +17,7 @@ default_ethereum_client_images:
   erigon: erigontech/erigon:main-latest
   nethermind: ethpandaops/nethermind:bogota-devnet-1
   reth: ethpandaops/reth:bogota-devnet-1
-  nimbusel: ethpandaops/nimbus-eth1:master
+  nimbusel: ethpandaops/nimbus-eth1:bogota-devnet-1
   ethrex: ethpandaops/ethrex:bogota-devnet-1
 
 default_tooling_images:
@@ -64,7 +64,7 @@ default_tooling_images:
   nginx_proxy_cert_loader: ethpandaops/debian-docker:latest
   nginx_proxy_cert_linker: nginxproxy/docker-gen
   vector: timberio/vector:0.56.0-alpine
-  spamoor: ethpandaops/spamoor:master-latest
+  spamoor: ethpandaops/spamoor:bogota-frame-recovery-e9b66be
   blobber: ethpandaops/blobber:latest
   syncoor_web: ghcr.io/ethpandaops/syncoor-web:master
   syncoor_server: ghcr.io/ethpandaops/syncoor:master

@@ -1,0 +1,33 @@
+participants:
+- el_type: geth
+  el_image: ethpandaops/geth@sha256:aaca099d3f5751b2cd55a6d74873a00b6b419ed1bbb641e37d5620305ca3793e
+  cl_type: lighthouse
+  cl_image: ethpandaops/lighthouse:unstable-8e0aeef
+- el_type: nimbus
+  el_image: ethpandaops/nimbus-eth1@sha256:936db0e44fbaf020503a455f31a1a0cd8aaffe637fb39fa791cb9e29273b43fb
+  cl_type: lighthouse
+  cl_image: ethpandaops/lighthouse:unstable-8e0aeef
+network_params:
+  gloas_fork_epoch: 0
+  heze_fork_epoch: 1
+  frames_enabled: true
+  seconds_per_slot: 6
+  gas_limit: 200000000
+  genesis_gaslimit: 200000000
+ethereum_genesis_generator_params:
+  image: ethpandaops/ethereum-genesis-generator:6.2.5
+  extra_env:
+    DEPLOY_EIP8253_PRESTATE: 'false'
+additional_services:
+- spamoor
+spamoor_params:
+  image: ethpandaops/spamoor:master-9579397
+  start_chainload: false
+  spammers:
+  - scenario: frametx
+    config:
+      throughput: 20
+      max_wallets: 100
+  - scenario: frametx-fuzz
+    config:
+      throughput: 5
