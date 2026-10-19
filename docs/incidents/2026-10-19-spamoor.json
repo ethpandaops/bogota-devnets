@@ -13,7 +13,7 @@
       "summary": "Keyed frame RPC nonce decoded as zero",
       "evidence": "Same confirmed nonce-70 transaction from ethrex/nethermind/reth decoded as nonce 0. Clients expose nonce rather than nonceSeq. Confirmation processing sets confirmedTxCount to decoded nonce + 1.",
       "impact": "Confirmation waiters fail to resolve; scenario exhausts max_pending=5000. A restart temporarily clears waiters.",
-      "status": "Fixed upstream in PR #302; live pod now runs 9579397 after restart pulled current master-latest. Draft PR #306 rebased to retain upstream implementation."
+      "status": "Fixed upstream in PR #302; first deployed through the 9579397 restart and included in the current e9b66be build. PR #306 was rebased to retain that upstream implementation."
     },
     {
       "id": "SPAM-002",
