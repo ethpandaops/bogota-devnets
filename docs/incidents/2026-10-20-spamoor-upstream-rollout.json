@@ -1,0 +1,205 @@
+{
+  "network": "bogota-devnet-1",
+  "captured_at_utc": "2026-10-20T14:28:47.977175+00:00",
+  "config_pr": "https://github.com/ethpandaops/bogota-devnets/pull/12",
+  "config_commit": "c218ddd263e4c9b93897307b7d2a0253dbb2faf2",
+  "source_pr": "https://github.com/ethpandaops/spamoor/pull/306",
+  "source_merge_commit": "077b33c2900bbb54426a965165d07a98dc65c227",
+  "image": "ethpandaops/spamoor:master-latest",
+  "image_digest": "sha256:fbe6a1e64f1df069ba0b5ebc4a677006ab16c01c98b29fb51b3047a828528871",
+  "tag_note": "Upstream publishes master and master-latest, not main. Both aliases resolve to the same manifest; master-latest makes the existing Ansible template select Always.",
+  "version": {
+    "version": "077b33c",
+    "release": "snapshot"
+  },
+  "pod_created_at_utc": "2026-10-20T14:25:56Z",
+  "pod_ready": true,
+  "pod_restarts": 0,
+  "active_scenarios": [
+    {
+      "id": 102,
+      "scenario": "pq-fors-tx",
+      "status": 1
+    }
+  ],
+  "client_readiness": [
+    {
+      "name": "bootnode-1",
+      "ready": true
+    },
+    {
+      "name": "lighthouse-besu-1",
+      "ready": false
+    },
+    {
+      "name": "lighthouse-besu-2",
+      "ready": false
+    },
+    {
+      "name": "lighthouse-ethrex-1",
+      "ready": true
+    },
+    {
+      "name": "lighthouse-ethrex-2",
+      "ready": true
+    },
+    {
+      "name": "lighthouse-geth-1",
+      "ready": true
+    },
+    {
+      "name": "lighthouse-geth-2",
+      "ready": true
+    },
+    {
+      "name": "lighthouse-nethermind-1",
+      "ready": true
+    },
+    {
+      "name": "lighthouse-nethermind-2",
+      "ready": true
+    },
+    {
+      "name": "lighthouse-reth-1",
+      "ready": true
+    },
+    {
+      "name": "lighthouse-reth-2",
+      "ready": true
+    }
+  ],
+  "chain_sample": {
+    "captured_at_utc": "2026-10-20T14:27:32.323451+00:00",
+    "blocks": [
+      {
+        "number": 35680,
+        "hash": "0x89d57d0dc04a2efb41dceb3106698f4929cd84060277091be5ef24256db893ba",
+        "transactions": 8,
+        "gas_used": 1440360,
+        "gas_limit": 200000000
+      },
+      {
+        "number": 35681,
+        "hash": "0x89f00269cd502e68773e5df06b5b525b29e93ccfe146b8fd3ecef3dda2e5c7c8",
+        "transactions": 11,
+        "gas_used": 1981319,
+        "gas_limit": 200000000
+      },
+      {
+        "number": 35682,
+        "hash": "0xe71b49ac6a5e1c904ff1c829ef9f63d8fecccd1385c656da3430235ed94b0476",
+        "transactions": 9,
+        "gas_used": 1619581,
+        "gas_limit": 200000000
+      },
+      {
+        "number": 35683,
+        "hash": "0x4371fbb0cb0415010f016143e267e178b82afd08ebbdf90406bd7987e28a78f2",
+        "transactions": 11,
+        "gas_used": 1981319,
+        "gas_limit": 200000000
+      }
+    ],
+    "receipt_sample": {
+      "block": 35683,
+      "count": 11,
+      "successful": 11,
+      "types": [
+        "0x6"
+      ]
+    }
+  },
+  "warning_lines": [],
+  "findings": [
+    {
+      "id": "configured-low-load",
+      "kind": "configuration",
+      "status": "frame workload remains paused",
+      "description": "The only active scenario, pq-fors-tx (102), targets 10 transactions per slot with 20 wallets. The high-volume frametx scenario (100) is paused, with throughput 1000 and max_wallets 500. Actual chain traffic matches the active workload target.",
+      "action": "Requested the user start scenario 100 through an authenticated Spamoor session; the saved operator API token is expired. No scenario or database configuration was changed."
+    },
+    {
+      "id": "pq-contract-wallet-metrics",
+      "kind": "bug",
+      "status": "open",
+      "report": "The pq-fors-tx scenario reports zero submitted, pending, confirmed, and throughput while its contract-account transactions are included successfully. Its account tracker wallets are registered directly with TxPool but are absent from WalletPool.GetAllWallets(), which the per-scenario counters and block attribution enumerate. Associate those contract trackers with the scenario wallet pool so the metrics reflect the existing transaction flow; no execution-client workaround is needed.",
+      "source_evidence": [
+        "Installed plugin archive: pqforstx/account.go:107-109",
+        "spamoor/walletpool.go:628 GetAllWallets",
+        "spamoor/txpool.go:925 calculateAllWalletPoolStats",
+        "daemon/metrics_collector.go:315 getWalletPoolTxCounts"
+      ]
+    },
+    {
+      "id": "besu-stalled",
+      "kind": "existing client issue",
+      "status": "open",
+      "description": "Both Besu endpoints remain not ready; nine endpoints across Geth, Reth, Nethermind, and Ethrex are ready."
+    }
+  ],
+  "validation": {
+    "ansible_generation": "passed (Spamoor only)",
+    "ansible_lint": "passed locally",
+    "helm_lint": "passed locally",
+    "diff_check": "passed",
+    "limitations": "Short post-rollout observation; only the PQ workload was active. No high-volume benchmark of this upstream image yet.",
+    "github_ci": "Ansible lint and Helm lint passed on configuration PR #12"
+  },
+  "post_startup_observation": {
+    "blocks": [
+      {
+        "block": 35680,
+        "total_transactions": 8,
+        "tracked_confirmations": 8
+      },
+      {
+        "block": 35681,
+        "total_transactions": 11,
+        "tracked_confirmations": 11
+      },
+      {
+        "block": 35682,
+        "total_transactions": 9,
+        "tracked_confirmations": 9
+      },
+      {
+        "block": 35683,
+        "total_transactions": 11,
+        "tracked_confirmations": 11
+      },
+      {
+        "block": 35684,
+        "total_transactions": 9,
+        "tracked_confirmations": 9
+      },
+      {
+        "block": 35685,
+        "total_transactions": 10,
+        "tracked_confirmations": 10
+      },
+      {
+        "block": 35686,
+        "total_transactions": 11,
+        "tracked_confirmations": 11
+      },
+      {
+        "block": 35687,
+        "total_transactions": 9,
+        "tracked_confirmations": 9
+      },
+      {
+        "block": 35688,
+        "total_transactions": 9,
+        "tracked_confirmations": 9
+      },
+      {
+        "block": 35689,
+        "total_transactions": 11,
+        "tracked_confirmations": 11
+      }
+    ],
+    "total_transactions": 98,
+    "average_transactions_per_block": 9.8,
+    "warning_count": 0
+  }
+}
