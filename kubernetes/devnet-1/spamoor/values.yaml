@@ -4,8 +4,8 @@ spamoor:
   fullnameOverride: spamoor
   image:
     repository: ethpandaops/spamoor
-    tag: bogota-frame-recovery-e9b66be
-    pullPolicy: IfNotPresent
+    tag: master-latest
+    pullPolicy: Always
   resources:
     requests:
       cpu: 250m
