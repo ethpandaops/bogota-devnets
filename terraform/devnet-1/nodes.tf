@@ -36,6 +36,8 @@ variable "nodes" {
     { name = "lighthouse-reth", count = 2, cloud = "digitalocean", supernode = true, validator_start = 500, validator_end = 750 },
     { name = "lighthouse-ethrex", count = 2, cloud = "digitalocean", supernode = true, validator_start = 750, validator_end = 1000 },
     { name = "lighthouse-besu", count = 2, cloud = "digitalocean", supernode = true },
+    # Nimbus EL joins as an observer while sync and frame transaction behavior are verified.
+    { name = "lighthouse-nimbusel", count = 1, cloud = "digitalocean", supernode = true },
   ]
 
   validation {

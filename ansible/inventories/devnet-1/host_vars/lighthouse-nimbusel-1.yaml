@@ -1,0 +1,2 @@
+# Join the running chain from its finalized consensus checkpoint.
+ethereum_node_cl_checkpoint_sync_enabled: true
