@@ -33,7 +33,10 @@ lighthouse_container_volumes:
   - "{{ lighthouse_auth_jwt_path }}:/execution-auth.jwt:ro"
   - "{{ eth_testnet_config_dir }}:/network-config:ro"
 lighthouse_container_command_extra_args: >-
-  {{ lighthouse_container_command_extra_simple_args }}
+  {{ lighthouse_container_command_extra_simple_args
+     | reject('equalto', '--allow-insecure-genesis-sync') | list
+     if ethereum_node_cl_checkpoint_sync_enabled | bool
+     else lighthouse_container_command_extra_simple_args }}
 lighthouse_container_command_extra_simple_args:
   - --testnet-dir=/network-config
   - --boot-nodes={{ ethereum_cl_bootnodes | join(',') }}

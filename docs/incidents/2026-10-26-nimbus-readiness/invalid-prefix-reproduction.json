@@ -1,0 +1,107 @@
+{
+  "transaction": {
+    "hash": "0x2602d0f5879cc5dcb0a0c1dbe6e508ec3e8df43ca8a3430d04f7145c67b83101",
+    "wallet_address": "0x575E5F3BCb05E1893d4A3038C0Ba574DfD9d930d",
+    "wallet_name": "1 (Nimbus invalid VERIFY prefix reproduction)",
+    "scenario_name": "frametx",
+    "spammer_id": 103,
+    "nonce": 0,
+    "value": "0",
+    "value_formatted": "0 wei",
+    "fee": "936540000000000",
+    "fee_formatted": "0.000937 ETH",
+    "base_fee": "20000000000",
+    "base_fee_formatted": "20.00 gwei",
+    "submitted_at": "2026-10-26T14:02:45Z",
+    "rebroadcast_count": 0,
+    "last_rebroadcast": "0001-01-01T00:00:00Z",
+    "rlp_encoded": "0x06f89d83301824c1808094575e5f3bcb05e1893d4a3038c0ba574dfd9d930de8c8010380c201808080de028094575e5f3bcb05e1893d4a3038c0ba574dfd9d930dc4827530808080f848f846018080b84100699426b033aa10ed108c701c34b84611815c6466e716ca898f7ae755871bf99413a2e561a0a25826aaa042f2ed12f3d8d43756965c6530e9d62c42d8f5f7022acc84773594008504a817c80080c0"
+  },
+  "responses": {
+    "33230": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "error": {
+        "code": -32000,
+        "message": "invalid frame execution: validation prefix frame failed (validation code executed)"
+      }
+    },
+    "33235": {
+      "jsonrpc": "2.0",
+      "error": {
+        "code": -32000,
+        "message": "`eth_sendRawTransaction` raised an exception",
+        "data": "txErrorAlreadyKnown"
+      },
+      "id": 1
+    }
+  },
+  "33230_transaction": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": null
+  },
+  "33230_receipt": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": null
+  },
+  "33235_transaction": {
+    "jsonrpc": "2.0",
+    "result": {
+      "blockHash": null,
+      "blockNumber": null,
+      "blockTimestamp": null,
+      "chainId": "0x301824",
+      "from": "0x575e5f3bcb05e1893d4a3038c0ba574dfd9d930d",
+      "transactionIndex": null,
+      "type": "0x6",
+      "hash": "0x2602d0f5879cc5dcb0a0c1dbe6e508ec3e8df43ca8a3430d04f7145c67b83101",
+      "accessList": [],
+      "maxPriorityFeePerGas": "0x77359400",
+      "maxFeePerGas": "0x4a817c800",
+      "nonce": "0x0",
+      "frames": [
+        {
+          "mode": "0x1",
+          "flags": "0x3",
+          "target": null,
+          "gasLimit": "0x1",
+          "stateGasLimit": "0x0",
+          "value": "0x0",
+          "data": "0x"
+        },
+        {
+          "mode": "0x2",
+          "flags": "0x0",
+          "target": "0x575e5f3bcb05e1893d4a3038c0ba574dfd9d930d",
+          "gasLimit": "0x7530",
+          "stateGasLimit": "0x0",
+          "value": "0x0",
+          "data": "0x"
+        }
+      ],
+      "signatures": [
+        {
+          "scheme": "0x1",
+          "signer": "0x",
+          "msg": "0x",
+          "signature": "0x00699426b033aa10ed108c701c34b84611815c6466e716ca898f7ae755871bf99413a2e561a0a25826aaa042f2ed12f3d8d43756965c6530e9d62c42d8f5f7022a"
+        }
+      ],
+      "nonceKeys": [
+        "0x0"
+      ],
+      "yParity": "0x0",
+      "v": "0x0",
+      "r": "0x0",
+      "s": "0x0"
+    },
+    "id": 1
+  },
+  "33235_receipt": {
+    "jsonrpc": "2.0",
+    "result": null,
+    "id": 1
+  }
+}

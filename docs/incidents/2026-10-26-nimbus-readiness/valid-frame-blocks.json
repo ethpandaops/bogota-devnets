@@ -1,0 +1,170 @@
+[
+  {
+    "block": 60,
+    "frames": 7,
+    "extraData": "0x4e696d6275732f76302e342e332d3461613837636161",
+    "hash": "0x566aeb8055f3234faaed3dd3d40b8bea83a72ae12b39460b93e34a53619da339",
+    "stateRoot": "0x450060ee3b0aec5d1e7d62daa17d3ed82d0d44c5ca17eeb7d5a6d5bb2b801db0",
+    "match": true
+  },
+  {
+    "block": 61,
+    "frames": 10,
+    "extraData": "0x4e696d6275732f76302e342e332d3461613837636161",
+    "hash": "0xc777ffb80c9ed23cfe20049f0374199ffc21bf23be6a1e87adbb307bde93ad69",
+    "stateRoot": "0x3f589a6e241e1110d3cac58c57ad0878b20b933465aa1f8f282c3fd32ecb11f7",
+    "match": true
+  },
+  {
+    "block": 62,
+    "frames": 10,
+    "extraData": "0x4e696d6275732f76302e342e332d3461613837636161",
+    "hash": "0xc55c9297d141fe81544ada42e501d39fa6fe04e3b65a43acea717d01a9ad8b45",
+    "stateRoot": "0x86f46dbd4d9fb73f01fb730ccc79d31bd93e7bd69f7819d6c1c0c1c640bd4f8d",
+    "match": true
+  },
+  {
+    "block": 63,
+    "frames": 10,
+    "extraData": "0xd883011106846765746888676f312e32372e32856c696e7578",
+    "hash": "0x87324b6f75be704e2f787d1b44984dba397a15cacab45b12271c05f0be60181f",
+    "stateRoot": "0x60b49d6c3dfb97c2653fffd7e3b9f54f552622a8772776a5fb959545bd9684c9",
+    "match": true
+  },
+  {
+    "block": 64,
+    "frames": 10,
+    "extraData": "0x4e696d6275732f76302e342e332d3461613837636161",
+    "hash": "0x354f08d636222c4146331c34b9ab10c2e01c7df798f7314bc66b0cf97992f754",
+    "stateRoot": "0x9c2934dc987eaf36e06f7cf613a32991afa96464e560d338d9cd5e8af58cfc6b",
+    "match": true
+  },
+  {
+    "block": 65,
+    "frames": 10,
+    "extraData": "0xd883011106846765746888676f312e32372e32856c696e7578",
+    "hash": "0xd510a9dc9ce2cbc931f660044e0d2818a18fc300a77e9e3956ac3178d2bcb5b6",
+    "stateRoot": "0xc638bb499956c618ea8a69c49bdd40041847e0202d5b0615c26430ec91d92736",
+    "match": true
+  },
+  {
+    "block": 66,
+    "frames": 10,
+    "extraData": "0xd883011106846765746888676f312e32372e32856c696e7578",
+    "hash": "0xe8f32a225d77509d6c533e678a323c314c7351a87c959f05fa979e1ff8222c24",
+    "stateRoot": "0x59f6eb2d9494c4690920878d53128dd372de7f13ad383db79fb157dbe73ce6d5",
+    "match": true
+  },
+  {
+    "block": 67,
+    "frames": 6,
+    "extraData": "0xd883011106846765746888676f312e32372e32856c696e7578",
+    "hash": "0x507d23612239446bcf3388d82f68e079b3bbdf519e3785d73f390c34ed5d1f5f",
+    "stateRoot": "0xad4c24c22aa095321d45117c1f8a88c32b311b848837dc6478f424050629270b",
+    "match": true
+  },
+  {
+    "block": 68,
+    "frames": 14,
+    "extraData": "0xd883011106846765746888676f312e32372e32856c696e7578",
+    "hash": "0xdc05e74d3c33140e67470bbcb97b14899c5e4035e675703a67673404d9693645",
+    "stateRoot": "0x99a30cd3eb6cbce7b6cdbf379eb8322231e7343c3e9226abaf68297f75e7d665",
+    "match": true
+  },
+  {
+    "block": 69,
+    "frames": 10,
+    "extraData": "0x4e696d6275732f76302e342e332d3461613837636161",
+    "hash": "0x35c2b1656dbc82d387d384f1d710fd770a5e61ecc6347a03a58c5efc1fc37b68",
+    "stateRoot": "0xade793ac6eb5dfee7a085f44719d016f3c6ce81bb5cc1ebadf41b228ab9f32a9",
+    "match": true
+  },
+  {
+    "block": 70,
+    "frames": 10,
+    "extraData": "0x4e696d6275732f76302e342e332d3461613837636161",
+    "hash": "0xd9eef3c89db39e9de0a01ffc1fb9ce6d408c2c96d2744ea5f56e5c2133b58bd5",
+    "stateRoot": "0xa4700842f2b87d86a20786ec48ba31a6028be21e080e80a26db12bf3808e3ce7",
+    "match": true
+  },
+  {
+    "block": 71,
+    "frames": 10,
+    "extraData": "0x4e696d6275732f76302e342e332d3461613837636161",
+    "hash": "0x5ca0951ff51b24acfb097d477cb70e6c73cf8ed4fa581c48be65d1e56e1373b0",
+    "stateRoot": "0xed03e7262435074be92fcd4a0e2319b83bef3a018bc8e611034d138257f487fc",
+    "match": true
+  },
+  {
+    "block": 72,
+    "frames": 10,
+    "extraData": "0xd883011106846765746888676f312e32372e32856c696e7578",
+    "hash": "0xf9f706541c2e15dbc128852cbd264cff978a84ebec295fe1078483cfeb7ac5d4",
+    "stateRoot": "0xb7fb2304791d31731a414c88afb714b081c42332b91c7f9568a6a22a5f7e4def",
+    "match": true
+  },
+  {
+    "block": 73,
+    "frames": 10,
+    "extraData": "0x4e696d6275732f76302e342e332d3461613837636161",
+    "hash": "0x0835c4b5e1d8a05558e5d186355a4cbdcc7cd1f5c2829bab38e4629db64201b2",
+    "stateRoot": "0x2620607e01cd07a793dea0ddb20fc0c2142a9d130a7dccaf10f94a247d8b2680",
+    "match": true
+  },
+  {
+    "block": 74,
+    "frames": 10,
+    "extraData": "0xd883011106846765746888676f312e32372e32856c696e7578",
+    "hash": "0x59aec0e5f04d111cf8b5280c89bf1c6853c4cd9fac15561c6dfd8bb1081590b8",
+    "stateRoot": "0x5b617878766c4c337cbdfc8eec62c36e1f88830e299c860a672fe895da272d18",
+    "match": true
+  },
+  {
+    "block": 75,
+    "frames": 10,
+    "extraData": "0x4e696d6275732f76302e342e332d3461613837636161",
+    "hash": "0x60780f55e1121d8db4114bad97e99731c16b4bcb8ceabbf9197fc8bf5228d196",
+    "stateRoot": "0x59ce4ab32db6a6e5f00580fe1007895721ddf3461a1feba432f6eb6d361f9277",
+    "match": true
+  },
+  {
+    "block": 76,
+    "frames": 10,
+    "extraData": "0x4e696d6275732f76302e342e332d3461613837636161",
+    "hash": "0xee1448bb9f1903cb78dd2f32f23c17931f7c9b1c21aa806237e4a633051213be",
+    "stateRoot": "0x7e99b27c0419c83aef0dbcc48bc8aff63845820e8ad67265ab665e6ab60e80c0",
+    "match": true
+  },
+  {
+    "block": 77,
+    "frames": 10,
+    "extraData": "0x4e696d6275732f76302e342e332d3461613837636161",
+    "hash": "0x23af5633259cfb974ab1e843452542120a49d9d6db20855434ba7c1ebc94e0c6",
+    "stateRoot": "0x1f0e270f486bc536ee8b16e1825ade00e0b66b4ab0d718d22a446093511f5493",
+    "match": true
+  },
+  {
+    "block": 78,
+    "frames": 10,
+    "extraData": "0xd883011106846765746888676f312e32372e32856c696e7578",
+    "hash": "0xe45d2343987c90ac40e7cea6655b6c9b375a6847815ab7d3c3c105df1fe7d2d7",
+    "stateRoot": "0xa29179dc502a2f4afff3b051cca038b2dbd732fd71d22f716a06520520bc567f",
+    "match": true
+  },
+  {
+    "block": 79,
+    "frames": 10,
+    "extraData": "0xd883011106846765746888676f312e32372e32856c696e7578",
+    "hash": "0x68ae50e42ceb39511c63596e5ba8c4124b619c6673621389f37df89c29a83177",
+    "stateRoot": "0x57b630ad78eec43d6e2e89c36ec85e04fc226d59b7dd2ecb23d8fce4ccc9a9ad",
+    "match": true
+  },
+  {
+    "block": 80,
+    "frames": 3,
+    "extraData": "0x4e696d6275732f76302e342e332d3461613837636161",
+    "hash": "0x8e862b5e0d16dd3073b47ff563d965517a222d03a25dca4577bfef9493675c6f",
+    "stateRoot": "0x3efc89e1f5b01f47aa22d9b6df765b459d9bfcb9d265cac5691f0c510e1fd913",
+    "match": true
+  }
+]
