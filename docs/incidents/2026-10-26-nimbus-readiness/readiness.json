@@ -56,22 +56,42 @@
     "local_finality": "both clients finalized epoch 2 at the same root"
   },
   "live_sync_sample": {
-    "at": "2026-10-26T14:17:59.047098+00:00",
-    "nimbus_head": 5840,
-    "geth_head": 78834,
-    "behind": 72994,
+    "at": "2026-10-26T14:41:19.401890+00:00",
+    "nimbus_head": 51020,
+    "geth_head": 78951,
+    "behind": 27931,
     "el_syncing": {
       "startingBlock": "0x1",
-      "currentBlock": "0x16d0",
+      "currentBlock": "0xc752",
       "highestBlock": "0x1339a"
     },
-    "el_peers": 6,
+    "el_peers": 11,
     "cl_syncing": {
       "is_syncing": false,
       "is_optimistic": true,
       "el_offline": false,
-      "head_slot": "78839",
+      "head_slot": "78956",
       "sync_distance": "0"
+    }
+  },
+  "spamoor_rollout": {
+    "image": "ethpandaops/spamoor:master-latest",
+    "tested_digest": "sha256:e890785f5814218bbcb544c495820ff7b02dd554e6d714f82849a0ac8de680c5",
+    "tested_version": "d235dd5",
+    "required_argument": "--legacy-frame-fees",
+    "reason": "Current master defaults to the devnet-2 frame wire format. bogota-devnet-1 requires its supported per-gas fee layout.",
+    "preflight": {
+      "captured_at": "2026-10-26T14:40:55.208430+00:00",
+      "nodes": [
+        "lighthouse-geth-1",
+        "lighthouse-nethermind-1"
+      ],
+      "transaction_count": 100,
+      "matching_receipts": 100,
+      "receipt_summary": [
+        "frame receipt check: 100 transactions verified, 0 mismatched, 0 without frame receipts"
+      ],
+      "warning_count": 0
     }
   }
 }

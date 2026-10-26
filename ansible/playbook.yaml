@@ -141,3 +141,13 @@
       tags: [eth_post_network_setup, ethereum_post_network_setup]
     - role: ethpandaops.general.generate_kubernetes_config
       tags: [gen_kubernetes_config, generate_kubernetes_config]
+  post_tasks:
+    - name: Select the devnet frame fee format for Spamoor
+      ansible.builtin.lineinfile:
+        path: "{{ gen_kubernetes_config_default_output_dir }}/spamoor/values.yaml"
+        insertafter: '^  customArgs:$'
+        line: '    - --legacy-frame-fees'
+      when:
+        - spamoor_legacy_frame_fees | default(false) | bool
+        - "'spamoor' in gen_kubernetes_config_enabled_charts"
+      tags: [gen_kubernetes_config, generate_kubernetes_config]

@@ -29,6 +29,7 @@ spamoor:
             pathType: Prefix
 
   customArgs:
+    - --legacy-frame-fees
     - --fulu-activation=1792078200
 
   persistence:
