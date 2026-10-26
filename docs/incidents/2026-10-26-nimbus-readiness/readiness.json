@@ -40,7 +40,7 @@
     "validator_count": 0,
     "terraform_apply": "completed",
     "config_pr": "https://github.com/ethpandaops/bogota-devnets/pull/16",
-    "status": "deployed; execution syncing",
+    "status": "deployed; synced and live canary passed; shared endpoint publication pending PR merge",
     "ansible_recap": {
       "ok": 80,
       "changed": 18,
@@ -92,6 +92,131 @@
         "frame receipt check: 100 transactions verified, 0 mismatched, 0 without frame receipts"
       ],
       "warning_count": 0
-    }
+    },
+    "saved_pq_plugin_validation": "Installed pq-frame-tx archive loaded and instantiated successfully with spamoor-utils from d235dd5; no scenario execution implied."
+  },
+  "throughput_observation": {
+    "scenario_id": 100,
+    "configured_transactions_per_block": 1000,
+    "max_wallets": 500,
+    "observed_transactions_per_block": 500,
+    "explanation": "The existing per-wallet confirmation gate permits one in-flight frame transaction per sender. A pool of 500 wallets bounds this workload at roughly 500 transactions per block.",
+    "configuration_changed": false
+  },
+  "historical_replay_sample": {
+    "at": "2026-10-26T14:50:59.179112+00:00",
+    "block": 55000,
+    "nodes": [
+      {
+        "node": "lighthouse-nimbusel-1",
+        "hash": "0xd973cf831e7b63344f98eb175d40572e8bd69aa9caf1de8680e2cb796dba829d",
+        "state_root": "0xce05b82341acb35fdd76eafafcb9ae90534af105fa1a70010314ab98c5af39fe",
+        "tx_count": 500
+      },
+      {
+        "node": "lighthouse-geth-1",
+        "hash": "0xd973cf831e7b63344f98eb175d40572e8bd69aa9caf1de8680e2cb796dba829d",
+        "state_root": "0xce05b82341acb35fdd76eafafcb9ae90534af105fa1a70010314ab98c5af39fe",
+        "tx_count": 500
+      },
+      {
+        "node": "lighthouse-nethermind-1",
+        "hash": "0xd973cf831e7b63344f98eb175d40572e8bd69aa9caf1de8680e2cb796dba829d",
+        "state_root": "0xce05b82341acb35fdd76eafafcb9ae90534af105fa1a70010314ab98c5af39fe",
+        "tx_count": 500
+      }
+    ],
+    "match": true
+  },
+  "live_readiness": {
+    "at": "2026-10-26T20:21:20.593430+00:00",
+    "nodes": [
+      {
+        "node": "lighthouse-nimbusel-1",
+        "version": "Nimbus/v0.4.3-4aa87caa/linux-amd64/Nim-2.2.12",
+        "head": 80651,
+        "syncing": false,
+        "peers": 11,
+        "cl_sync": {
+          "is_syncing": false,
+          "is_optimistic": false,
+          "el_offline": false,
+          "head_slot": "80656",
+          "sync_distance": "0"
+        },
+        "finality": {
+          "previous_justified": {
+            "epoch": "2518",
+            "root": "0x6f83b9770e0b045354e95a014b64d027ffd00491cce354a503f530c61549764c"
+          },
+          "current_justified": {
+            "epoch": "2519",
+            "root": "0xc166b67bb44924a3a93d911b509409c394952bdd5d77930a19f92d94805bb5d1"
+          },
+          "finalized": {
+            "epoch": "2518",
+            "root": "0x6f83b9770e0b045354e95a014b64d027ffd00491cce354a503f530c61549764c"
+          }
+        }
+      },
+      {
+        "node": "lighthouse-geth-1",
+        "version": "Geth/v1.17.6-unstable-8dfba15f-20261013/linux-amd64/go1.27.2",
+        "head": 80651,
+        "syncing": false,
+        "peers": 13,
+        "cl_sync": {
+          "is_syncing": false,
+          "is_optimistic": false,
+          "el_offline": false,
+          "head_slot": "80657",
+          "sync_distance": "0"
+        },
+        "finality": {
+          "previous_justified": {
+            "epoch": "2518",
+            "root": "0x6f83b9770e0b045354e95a014b64d027ffd00491cce354a503f530c61549764c"
+          },
+          "current_justified": {
+            "epoch": "2519",
+            "root": "0xc166b67bb44924a3a93d911b509409c394952bdd5d77930a19f92d94805bb5d1"
+          },
+          "finalized": {
+            "epoch": "2518",
+            "root": "0x6f83b9770e0b045354e95a014b64d027ffd00491cce354a503f530c61549764c"
+          }
+        }
+      }
+    ],
+    "compared_block": 80651,
+    "blocks": [
+      {
+        "hash": "0x6228560d4868eaeac0284fc2e0453e07a21be0fbcf3c99adea16ab2ae03b6d3f",
+        "stateRoot": "0x3db90666f39194838a2d5f6a1bbe115642502bbce750c24af50211fb2c59dbae"
+      },
+      {
+        "hash": "0x6228560d4868eaeac0284fc2e0453e07a21be0fbcf3c99adea16ab2ae03b6d3f",
+        "stateRoot": "0x3db90666f39194838a2d5f6a1bbe115642502bbce750c24af50211fb2c59dbae"
+      }
+    ],
+    "match": true
+  },
+  "live_canary": {
+    "captured_at": "2026-10-26T20:21:38.151129+00:00",
+    "nodes": [
+      "lighthouse-nimbusel-1",
+      "lighthouse-geth-1"
+    ],
+    "transaction_count": 100,
+    "matching_receipts": 100,
+    "receipt_summary": [
+      "frame receipt check: 100 transactions verified, 0 mismatched, 0 without frame receipts"
+    ],
+    "warning_count": 0,
+    "submission_client": "Nimbus only",
+    "rebroadcast": false,
+    "completed_at": "2026-10-26T15:35:03Z",
+    "spamoor_version": "d235dd5",
+    "legacy_frame_fees": true
   }
 }
