@@ -47,6 +47,9 @@ powfaucet:
     - url: "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-reth-1.srv.bogota-devnet-1.ethpandaops.io"
       name: "lighthouse-reth-1"
       priority: 5
+    - url: "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-nimbusel-1.srv.bogota-devnet-1.ethpandaops.io"
+      name: "lighthouse-nimbusel-1"
+      priority: 5
     - url: "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-besu-1.srv.bogota-devnet-1.ethpandaops.io"
       name: "lighthouse-besu-1"
       priority: 5

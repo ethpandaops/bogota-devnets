@@ -64,6 +64,9 @@ assertoor:
     - name:  lighthouse-nethermind-2
       executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-nethermind-2.srv.bogota-devnet-1.ethpandaops.io
       consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-2.srv.bogota-devnet-1.ethpandaops.io
+    - name:  lighthouse-nimbusel-1
+      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-nimbusel-1.srv.bogota-devnet-1.ethpandaops.io
+      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nimbusel-1.srv.bogota-devnet-1.ethpandaops.io
     - name:  lighthouse-reth-1
       executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-reth-1.srv.bogota-devnet-1.ethpandaops.io
       consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-1.srv.bogota-devnet-1.ethpandaops.io
@@ -84,6 +87,7 @@ assertoor:
       - lighthouse-geth-2
       - lighthouse-nethermind-1
       - lighthouse-nethermind-2
+      - lighthouse-nimbusel-1
       - lighthouse-reth-1
       - lighthouse-reth-2
     validatorPairNames:

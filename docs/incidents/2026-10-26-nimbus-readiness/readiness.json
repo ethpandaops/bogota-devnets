@@ -1,0 +1,77 @@
+{
+  "image": "ethpandaops/nimbus-eth1:bogota-devnet-1",
+  "image_digest": "sha256:853e2f73a924d8aa635a00d25d3b9677f3986ac0f74e4a8dfce66ee9091d5b16",
+  "version": "Nimbus/v0.4.3-4aa87caa/linux-amd64/Nim-2.2.12",
+  "upstream_blob_wrapper_fix": "eb0d71de8dd13332622563651550314a4adce994",
+  "valid_frame_test": {
+    "submission_client": "Nimbus only",
+    "rebroadcast": false,
+    "receipt_summary": [
+      "frame receipt check: 200 transactions verified, 0 mismatched, 0 without frame receipts"
+    ],
+    "warnings": [],
+    "gossip_evidence": "200 frame transactions included across 12 Nimbus-produced and 9 Geth-produced blocks; both clients returned identical hashes and state roots."
+  },
+  "open_issue": "https://github.com/status-im/nimbus-eth1/issues/5094",
+  "invalid_prefix_test": {
+    "verify_gas": 1,
+    "user_op_gas": 30000,
+    "shape": "self-verify",
+    "nimbus": "accepted and retained in pending pool",
+    "geth": "invalid frame execution: validation prefix frame failed (validation code executed)"
+  },
+  "test_setup_note": "Initial partial API config omitted per-frame gas budgets; its empty-block result is not used as evidence of failure for valid transactions. The successful test used the existing devnet full frame configuration with a fresh wallet seed.",
+  "local_finality": {
+    "captured_at": "2026-10-26T14:07:35.720878+00:00",
+    "geth_lighthouse": {
+      "epoch": "2",
+      "root": "0x32c6671e0fb38cc9955cd2a893d997dad4a87b369433f5d6201f221be2f3dff5"
+    },
+    "nimbus_lighthouse": {
+      "epoch": "2",
+      "root": "0x32c6671e0fb38cc9955cd2a893d997dad4a87b369433f5d6201f221be2f3dff5"
+    }
+  },
+  "provisioning": {
+    "host": "lighthouse-nimbusel-1",
+    "ipv4": "139.59.67.10",
+    "cloud": "digitalocean",
+    "region": "blr1",
+    "validator_count": 0,
+    "terraform_apply": "completed",
+    "config_pr": "https://github.com/ethpandaops/bogota-devnets/pull/16",
+    "status": "deployed; execution syncing",
+    "ansible_recap": {
+      "ok": 80,
+      "changed": 18,
+      "failed": 0,
+      "unreachable": 0
+    }
+  },
+  "configuration_fix": "Filter --allow-insecure-genesis-sync from Lighthouse extra arguments when checkpoint sync is enabled; resolves the mutually exclusive flags on the new host.",
+  "validation": {
+    "terraform": "passed",
+    "ansible_lint": "passed",
+    "helm_lint": "18 charts passed",
+    "local_finality": "both clients finalized epoch 2 at the same root"
+  },
+  "live_sync_sample": {
+    "at": "2026-10-26T14:17:59.047098+00:00",
+    "nimbus_head": 5840,
+    "geth_head": 78834,
+    "behind": 72994,
+    "el_syncing": {
+      "startingBlock": "0x1",
+      "currentBlock": "0x16d0",
+      "highestBlock": "0x1339a"
+    },
+    "el_peers": 6,
+    "cl_syncing": {
+      "is_syncing": false,
+      "is_optimistic": true,
+      "el_offline": false,
+      "head_slot": "78839",
+      "sync_distance": "0"
+    }
+  }
+}

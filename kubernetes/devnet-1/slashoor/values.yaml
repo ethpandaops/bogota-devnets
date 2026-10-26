@@ -28,6 +28,7 @@ slashoor:
         - https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-geth-2.srv.bogota-devnet-1.ethpandaops.io
         - https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-1.srv.bogota-devnet-1.ethpandaops.io
         - https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-2.srv.bogota-devnet-1.ethpandaops.io
+        - https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nimbusel-1.srv.bogota-devnet-1.ethpandaops.io
         - https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-1.srv.bogota-devnet-1.ethpandaops.io
         - https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-2.srv.bogota-devnet-1.ethpandaops.io
       timeout: 30s

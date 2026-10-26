@@ -77,6 +77,9 @@ checkpointz:
         - name: lighthouse-nethermind-2
           address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-2.srv.bogota-devnet-1.ethpandaops.io
           dataProvider: true
+        - name: lighthouse-nimbusel-1
+          address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nimbusel-1.srv.bogota-devnet-1.ethpandaops.io
+          dataProvider: true
         - name: lighthouse-reth-1
           address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-1.srv.bogota-devnet-1.ethpandaops.io
           dataProvider: true

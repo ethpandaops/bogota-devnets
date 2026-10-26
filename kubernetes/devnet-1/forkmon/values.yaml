@@ -40,6 +40,8 @@ forkmon:
     name: lighthouse-nethermind-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-nethermind-2.srv.bogota-devnet-1.ethpandaops.io
     name: lighthouse-nethermind-2
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-nimbusel-1.srv.bogota-devnet-1.ethpandaops.io
+    name: lighthouse-nimbusel-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-reth-1.srv.bogota-devnet-1.ethpandaops.io
     name: lighthouse-reth-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-reth-2.srv.bogota-devnet-1.ethpandaops.io

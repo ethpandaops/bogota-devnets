@@ -1,0 +1,26 @@
+participants:
+- el_type: geth
+  el_image: ethpandaops/geth@sha256:aaca099d3f5751b2cd55a6d74873a00b6b419ed1bbb641e37d5620305ca3793e
+  cl_type: lighthouse
+  cl_image: ethpandaops/lighthouse:unstable-8e0aeef
+- el_type: nimbus
+  el_image: ethpandaops/nimbus-eth1@sha256:853e2f73a924d8aa635a00d25d3b9677f3986ac0f74e4a8dfce66ee9091d5b16
+  cl_type: lighthouse
+  cl_image: ethpandaops/lighthouse:unstable-8e0aeef
+network_params:
+  gloas_fork_epoch: 0
+  heze_fork_epoch: 1
+  frames_enabled: true
+  seconds_per_slot: 6
+  gas_limit: 200000000
+  genesis_gaslimit: 200000000
+ethereum_genesis_generator_params:
+  image: ethpandaops/ethereum-genesis-generator:6.2.5
+  extra_env:
+    DEPLOY_EIP8253_PRESTATE: 'false'
+additional_services:
+- spamoor
+spamoor_params:
+  image: ethpandaops/spamoor@sha256:fbe6a1e64f1df069ba0b5ebc4a677006ab16c01c98b29fb51b3047a828528871
+  start_chainload: false
+  spammers: []
