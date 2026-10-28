@@ -4,8 +4,8 @@ spamoor:
   fullnameOverride: spamoor
   image:
     repository: ethpandaops/spamoor
-    tag: master-latest
-    pullPolicy: Always
+    tag: master-456d075
+    pullPolicy: IfNotPresent
   resources:
     requests:
       cpu: 250m
