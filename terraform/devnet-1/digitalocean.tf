@@ -1,10 +1,9 @@
 ////////////////////////////////////////////////////////////////////////////////////////
 //                                        VARIABLES
 ////////////////////////////////////////////////////////////////////////////////////////
-# The DigitalOcean project kept its pre-rename name.
 variable "digitalocean_project_name" {
   type    = string
-  default = "frames-devnets"
+  default = "bogota-devnets"
 }
 
 variable "digitalocean_ssh_key_name" {
