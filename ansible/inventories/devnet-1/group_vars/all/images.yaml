@@ -45,7 +45,7 @@ default_tooling_images:
   eth_fauceth: chainflag/eth-faucet:latest
   blobscan: blossomlabs/blobscan:latest
   blobscan_indexer: blossomlabs/blobscan-indexer:latest
-  dora: ethpandaops/dora:master-latest
+  dora: ethpandaops/dora:master-a5d3dae
   dugtrio: ethpandaops/dugtrio:latest
   ethereum_genesis_generator: ethpandaops/ethereum-genesis-generator:6.2.5 # f1dc4d8, first release with #327 (EIP-8272 recent root predeploy)
   tracoor: ethpandaops/tracoor:0.1.2-debian

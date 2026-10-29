@@ -4,7 +4,7 @@ dora:
   fullnameOverride: dora
   image:
     repository: ethpandaops/dora
-    tag: master-latest
+    tag: master-a5d3dae
     pullPolicy: Always
   resources:
     requests:
