@@ -48,7 +48,7 @@ ethereum_genesis_network_seed: "bogota-devnet-2"
 ethereum_genesis_chain_id: "70{{ 99999999 | random(start=10000000, seed=ethereum_genesis_network_seed) }}"
 ethereum_genesis_fork_version_suffix: "{{ 999999 | random(start=100000, seed=ethereum_genesis_network_seed) }}"
 ethereum_genesis_generator_output_dir: "../network-configs/{{ network_iteration }}"
-ethereum_genesis_timestamp: 1793287800 # 2026-10-29 15:30:00 UTC
+ethereum_genesis_timestamp: 1793284200 # 2026-10-29 14:30:00 UTC
 ethereum_genesis_timedelay: 0
 shadowfork_height: 0
 ethereum_genesis_mnemonic: "{{ secret_genesis_mnemonic }}"
