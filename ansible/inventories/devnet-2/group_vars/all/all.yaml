@@ -203,8 +203,6 @@ gen_kubernetes_config_dora_execution_endpoints_url: "https://raw.githubuserconte
 gen_kubernetes_config_dora_consensus_endpoints_url: "https://raw.githubusercontent.com/ethpandaops/{{ devnet_name }}-devnets/refs/heads/master/kubernetes/{{ network_iteration }}/dora/endpoints-cl.yaml"
 gen_kubernetes_config_dora_api_secret: "{{ secret_dora_api_key }}"
 
-# Current Spamoor defaults to the devnet-2 frame wire format.
-spamoor_legacy_frame_fees: true
 # No buildoor hosts and no mev relay.
 gen_kubernetes_config_disabled_services:
   - buildoor
