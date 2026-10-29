@@ -15,9 +15,10 @@ This repository contains the infrastructure code used to setup ~all~ dev/testnet
 Status   | Network    | Links   | Ansible                                                      | Terraform | Kubernetes
 ------   | --------   | ----     |  -----                                                       | -------   | ------
  🔴 | devnet-0 | [Spec](https://notes.ethereum.org/@ethpandaops/bogota-devnet-0) / [Network config](network-configs/devnet-0) | - | - | [🔗](kubernetes-archive/devnet-0)
- 🟢 | [devnet-1](https://bogota-devnet-1.ethpandaops.io/) | [Spec](https://notes.ethereum.org/@ethpandaops/bogota-devnet-1) / [Network config](network-configs/devnet-1) / [Inventory](https://config.bogota-devnet-1.ethpandaops.io/api/v1/nodes/inventory) / [Validator ranges](https://config.bogota-devnet-1.ethpandaops.io/api/v1/nodes/validator-ranges) | [🔗](ansible/inventories/devnet-1) | [🔗](terraform/devnet-1) | [🔗](kubernetes/devnet-1)
+ 🔴 | devnet-1 | [Spec](https://notes.ethereum.org/@ethpandaops/bogota-devnet-1) / [Network config](network-configs/devnet-1) | - | - | [🔗](kubernetes-archive/devnet-1)
+ 🟢 | [devnet-2](https://bogota-devnet-2.ethpandaops.io/) | [Spec](https://notes.ethereum.org/@ethpandaops/bogota-devnet-2) / [Network config](network-configs/devnet-2) / [Inventory](https://config.bogota-devnet-2.ethpandaops.io/api/v1/nodes/inventory) / [Validator ranges](https://config.bogota-devnet-2.ethpandaops.io/api/v1/nodes/validator-ranges) | [🔗](ansible/inventories/devnet-2) | [🔗](terraform/devnet-2) | [🔗](kubernetes/devnet-2)
 
-Formerly `frames-devnets`. devnet-0 launched as frames-devnet-0 (kubernetes services on `*.bogota-devnet-0.ethpandaops.io`, nodes on `*.srv.frames-devnet-0.ethpandaops.io`) and was torn down on 2026-10-15.
+Formerly `frames-devnets`. devnet-0 launched as frames-devnet-0 (kubernetes services on `*.bogota-devnet-0.ethpandaops.io`, nodes on `*.srv.frames-devnet-0.ethpandaops.io`) and was torn down on 2026-10-15. devnet-1 was torn down on 2026-10-29.
 
 # Development
 ## Version management for tools
