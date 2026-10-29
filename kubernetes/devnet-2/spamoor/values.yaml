@@ -1,0 +1,48 @@
+# Ansible managed. Don't change this file manually. Template info: /vendor/collections/ansible_collections/ethpandaops/general/roles/generate_kubernetes_config/templates/spamoor.yaml.j2
+
+spamoor:
+  fullnameOverride: spamoor
+  image:
+    repository: ethpandaops/spamoor
+    tag: codeadopt
+    pullPolicy: IfNotPresent
+  resources:
+    requests:
+      cpu: 250m
+      memory: 500Mi
+    limits:
+      cpu: 2000m
+      memory: 2Gi
+  ingress:
+    enabled: true
+    className: ingress-nginx-public
+    annotations:
+      nginx.ingress.kubernetes.io/proxy-body-size: "0"
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        sub_filter '</head>' '<script src="https://pandamenu.ethpandaops.io/panda-menu-1.0.1.js" integrity="sha384-icGX6g6CzB0tqlhDc6Su4c6IPVbcbUvfM3xjbbFYsYBwuZR79WkmOxDhGEPfmyn2" crossorigin="anonymous"></script></head>';
+        sub_filter_types text/html;
+        sub_filter_once off;
+    hosts:
+      - host: spamoor.bogota-devnet-2.ethpandaops.io
+        paths:
+          - path: /
+            pathType: Prefix
+
+  customArgs:
+    - --fulu-activation=1793284200
+
+  persistence:
+    enabled: true
+
+  privateKey: "<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.spamoor_private_key}>"
+  authProviderUrl: "https://auth.bogota-devnet-2.ethpandaops.io"
+  rpcEndpoints:
+  - "group(bootnode-1)name(bootnode-1)https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-bootnode-1.srv.bogota-devnet-2.ethpandaops.io"
+  - "group(lighthouse-ethrex-1)name(lighthouse-ethrex-1)https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io"
+  - "group(lighthouse-ethrex-2)name(lighthouse-ethrex-2)https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-ethrex-2.srv.bogota-devnet-2.ethpandaops.io"
+  - "group(lighthouse-geth-1)name(lighthouse-geth-1)https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-geth-1.srv.bogota-devnet-2.ethpandaops.io"
+  - "group(lighthouse-geth-2)name(lighthouse-geth-2)https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-geth-2.srv.bogota-devnet-2.ethpandaops.io"
+  - "group(lighthouse-nethermind-1)name(lighthouse-nethermind-1)https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-nethermind-1.srv.bogota-devnet-2.ethpandaops.io"
+  - "group(lighthouse-nethermind-2)name(lighthouse-nethermind-2)https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-nethermind-2.srv.bogota-devnet-2.ethpandaops.io"
+  - "group(lighthouse-reth-1)name(lighthouse-reth-1)https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-reth-1.srv.bogota-devnet-2.ethpandaops.io"
+  - "group(lighthouse-reth-2)name(lighthouse-reth-2)https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-reth-2.srv.bogota-devnet-2.ethpandaops.io"
