@@ -70,7 +70,7 @@ ethereum_genesis_generator_config_files:
     export GLOAS_FORK_VERSION="0x80{{ ethereum_genesis_fork_version_suffix }}"
     export HEZE_FORK_VERSION="0x90{{ ethereum_genesis_fork_version_suffix }}"
     export GLOAS_FORK_EPOCH=0
-    export HEZE_FORK_EPOCH=10 # EL bogota at genesis + 10 x 32 x 12s = 16:34:00 UTC
+    export HEZE_FORK_EPOCH=10 # EL bogota at genesis + 10 x 32 x 12s = 15:34:00 UTC
     # EIP-8141 only: the CL keeps Heze off (HEZE_FORK_EPOCH pinned to max in config.yaml)
     # while the EL activates bogota at HEZE_FORK_EPOCH. Keeps FOCIL (EIP-7805) out.
     export FRAMES_ENABLED=true
