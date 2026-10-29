@@ -11,7 +11,7 @@ default_ethereum_client_images:
   teku: consensys/teku:latest
   grandine: ethpandaops/grandine:develop
   ### Execution layer clients
-  geth: ethpandaops/geth:bogota-devnet-1
+  geth: ethpandaops/geth:bogota-devnet-2
   erigon: erigontech/erigon:main-latest
   nethermind: ethpandaops/nethermind:bogota-devnet-2
   reth: ethpandaops/reth:bogota-devnet-2
