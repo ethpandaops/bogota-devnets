@@ -17,7 +17,7 @@ authenticatoor:
 
   issuer: "https://auth.bogota-devnet-2.ethpandaops.io"
 
-  authMode: [authentik, cfaccess]
+  authMode: [authentik]
   providers:
     - name: authentik
       type: oidc
