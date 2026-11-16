@@ -97,6 +97,7 @@ powfaucet:
       feature: drop_100eth
       limitCount: 1
       overrideMaxDrop: 100000000000000000000
+      rewardFactor: 1
       skipModules:
       - pow
       - recurring-limits
