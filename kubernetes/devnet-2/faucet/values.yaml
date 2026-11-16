@@ -87,12 +87,14 @@ powfaucet:
   faucetAuthenticatoorEnabled: true
   faucetAuthenticatoorAuthUrl: "https://auth.bogota-devnet-2.ethpandaops.io"
   faucetAuthenticatoorExpectedAudience: "bogota-devnet-2.ethpandaops.io"
+  faucetAuthenticatoorExpectedService: "faucet"
   faucetAuthenticatoorGrants:
     - duration: 86400
       limitAmount: 0
       limitCount: 0
       rewardFactor: 10
     - duration: 86400
+      feature: drop_100eth
       limitCount: 1
       overrideMaxDrop: 100000000000000000000
       skipModules:
