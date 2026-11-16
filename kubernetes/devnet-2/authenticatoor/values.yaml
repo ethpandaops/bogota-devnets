@@ -36,12 +36,6 @@ authenticatoor:
         teamRules:
           - claim: groups
             prefix: "team:"
-    - name: cfaccess
-      type: cloudflare
-      cloudflareAccess:
-        verifyJWT: true
-        teamDomain: "ethpandaops.cloudflareaccess.com"
-        audTag: ""
 
   providerSecrets:
     files:
@@ -51,8 +45,6 @@ authenticatoor:
     - members:
       - authentik/team:ethpandaops
       - authentik/groups:ethpandaops:Core
-      - cfaccess/principal:user
-      - cfaccess/principal:service
       name: staff
       services:
       - all:all
