@@ -24,6 +24,10 @@ forkmon:
   endpoints:
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-bootnode-1.srv.bogota-devnet-2.ethpandaops.io
     name: bootnode-1
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
+    name: lighthouse-besu-1
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io
+    name: lighthouse-besu-2
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
     name: lighthouse-ethrex-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-ethrex-2.srv.bogota-devnet-2.ethpandaops.io

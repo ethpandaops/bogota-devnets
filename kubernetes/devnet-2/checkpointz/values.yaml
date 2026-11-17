@@ -53,6 +53,12 @@ checkpointz:
         - name: bootnode-1
           address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-bootnode-1.srv.bogota-devnet-2.ethpandaops.io
           dataProvider: true
+        - name: lighthouse-besu-1
+          address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
+          dataProvider: true
+        - name: lighthouse-besu-2
+          address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io
+          dataProvider: true
         - name: lighthouse-ethrex-1
           address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
           dataProvider: true

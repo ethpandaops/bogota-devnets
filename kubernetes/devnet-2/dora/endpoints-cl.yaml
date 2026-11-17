@@ -5,6 +5,16 @@
   name: bootnode-1
   authGroup: pandaops
   priority: -1
+- url: https://bn-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
+  name: lighthouse-besu-1
+  authGroup: pandaops
+  priority: -1
+  archive: true
+- url: https://bn-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io
+  name: lighthouse-besu-2
+  authGroup: pandaops
+  priority: -1
+  archive: true
 - url: https://bn-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
   name: lighthouse-ethrex-1
   authGroup: pandaops

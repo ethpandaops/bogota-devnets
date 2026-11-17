@@ -41,6 +41,7 @@ bootnodoor_container_env:
 ethereum_node_el: geth
 ethereum_node_cl: lighthouse
 ethereum_node_cl_validator_enabled: false
+ethereum_node_cl_checkpoint_sync_enabled: false
 
 # role: ethpandaops.general.lighthouse
 # Same pinned lighthouse as the validator nodes: the only CL tested on this config

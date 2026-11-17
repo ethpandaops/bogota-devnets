@@ -40,6 +40,12 @@ assertoor:
     - name:  bootnode-1
       executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-bootnode-1.srv.bogota-devnet-2.ethpandaops.io
       consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-bootnode-1.srv.bogota-devnet-2.ethpandaops.io
+    - name:  lighthouse-besu-1
+      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
+    - name:  lighthouse-besu-2
+      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-ethrex-1
       executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
       consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
@@ -70,6 +76,8 @@ assertoor:
     walletPrivkey: "<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.assertoor_private_key}>"
     clientPairNames:
       - bootnode-1
+      - lighthouse-besu-1
+      - lighthouse-besu-2
       - lighthouse-ethrex-1
       - lighthouse-ethrex-2
       - lighthouse-geth-1
@@ -79,6 +87,8 @@ assertoor:
       - lighthouse-reth-1
       - lighthouse-reth-2
     validatorPairNames:
+      - lighthouse-besu-1
+      - lighthouse-besu-2
       - lighthouse-ethrex-1
       - lighthouse-ethrex-2
       - lighthouse-geth-2

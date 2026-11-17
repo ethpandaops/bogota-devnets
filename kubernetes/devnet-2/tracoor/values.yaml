@@ -106,6 +106,16 @@ tracoor-single:
             traceDisableMemory: true
             traceDisableStack: true
             traceDisableStorage: true
+      - name: lighthouse-besu-1
+        ethereum:
+          overrideNetworkName: bogota-devnet-2
+          beacon:
+            nodeAddress: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
+          execution:
+            nodeAddress: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
+            traceDisableMemory: true
+            traceDisableStack: true
+            traceDisableStorage: true
       - name: lighthouse-ethrex-1
         ethereum:
           overrideNetworkName: bogota-devnet-2

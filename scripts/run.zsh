@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 node="bootnode-1"
-network="devnet-0"
+network="devnet-2"
 domain="ethpandaops.io"
 srv="srv"
 prefix="bogota"

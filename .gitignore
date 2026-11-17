@@ -37,3 +37,6 @@ scripts/*.txt
 scripts/*.json
 # Python venv (uv)
 .venv/
+
+# Python
+__pycache__/
