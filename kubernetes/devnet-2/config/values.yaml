@@ -4,6 +4,7 @@ network: devnet-2
 chainId: 7076692741
 
 domain: bogota-devnet-2.ethpandaops.io
+ingressClassName: traefik-devnets
 
 config:
   enabled: true
