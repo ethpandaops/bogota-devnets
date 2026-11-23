@@ -1,9 +1,8 @@
 default_ethereum_client_images:
   ### Consensus layer clients
-  # Pinned to the unstable build tested in kurtosis (bogota fork transition and
-  # finality, 2026-10-14) so watchtower cannot roll a new unstable onto every CL
-  # between genesis and the bogota fork.
-  lighthouse: ethpandaops/lighthouse:unstable-8e0aeef
+  # Floating tag: the bogota fork is past, so watchtower may follow unstable.
+  # 8e0aeef (the genesis pin) lacks the Gloas EL-blobs fix (sigp/lighthouse#10488).
+  lighthouse: ethpandaops/lighthouse:unstable
   lodestar: chainsafe/lodestar:latest
   nimbus: statusim/nimbus-eth2:multiarch-latest
   prysm: gcr.io/offchainlabs/prysm/beacon-chain:latest
