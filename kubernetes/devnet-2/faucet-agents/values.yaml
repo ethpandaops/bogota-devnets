@@ -21,10 +21,10 @@ powfaucet:
 
     className: traefik-devnets
     annotations:
-      # Behind the class's basic-auth gate (node_ingress credentials), which
-      # only the panda proxy holds: auth tier, priority 2000.
+      # Behind its own basic-auth gate (templates/basic-auth.yaml, node_ingress
+      # credentials), which only the panda proxy holds: auth tier, priority 2000.
       traefik.ingress.kubernetes.io/router.priority: "2000"
-      traefik.ingress.kubernetes.io/router.middlewares: traefik-devnets-basic-auth-bogota@kubernetescrd
+      traefik.ingress.kubernetes.io/router.middlewares: frames-devnet-2-basic-auth@kubernetescrd
 
     hosts:
       - host: faucet-agents.bogota-devnet-2.ethpandaops.io
