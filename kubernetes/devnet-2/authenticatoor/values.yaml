@@ -53,6 +53,7 @@ authenticatoor:
       name: core-devs
       services:
       - faucet:drop_100eth
+      - upgradoor:details
 
   persistence:
     enabled: true
