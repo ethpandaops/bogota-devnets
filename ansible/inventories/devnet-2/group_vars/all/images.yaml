@@ -25,7 +25,7 @@ default_tooling_images:
   buildoor: ethpandaops/buildoor:main-latest
   authenticatoor: ethpandaops/service-authenticatoor:latest
   upgradoor: ghcr.io/ethpandaops/upgradoor:master-latest
-  xatu_sentry: ethpandaops/xatu:1.26.0
+  xatu_sentry: ethpandaops/xatu:bogota-devnet-2
   xatu_cannon: ethpandaops/xatu:latest
   xatu_mimicry: ethpandaops/xatu:latest
   xatu_cl_mimicry: ethpandaops/xatu:latest
