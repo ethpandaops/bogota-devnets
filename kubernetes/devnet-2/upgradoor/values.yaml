@@ -41,9 +41,10 @@ upgradoor:
     - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io"
     - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-2.srv.bogota-devnet-2.ethpandaops.io"
   validatorRangesUrl: "https://config.bogota-devnet-2.ethpandaops.io/api/v1/nodes/validator-ranges"
-  # The UI's Content-Security-Policy admits the injected menu.
+  # The UI includes the menu itself; its Content-Security-Policy admits the menu's data.
   extraArgs:
-    - "--ui-origin=https://pandamenu.ethpandaops.io"
+    - "--ui-script=https://pandamenu.ethpandaops.io/panda-menu-1.0.1.js"
+    - "--ui-script-integrity=sha384-icGX6g6CzB0tqlhDc6Su4c6IPVbcbUvfM3xjbbFYsYBwuZR79WkmOxDhGEPfmyn2"
     - "--ui-origin=https://ethpandaops-platform-production-cartographoor.ams3.digitaloceanspaces.com"
 
   settings:
@@ -75,7 +76,6 @@ upgradoor:
     className: traefik-devnets
     annotations:
       ethpandaops.io/exposure: "public"
-      traefik.ingress.kubernetes.io/router.middlewares: traefik-devnets-pandamenu@kubernetescrd
     hosts:
       - host: upgradoor.bogota-devnet-2.ethpandaops.io
         paths:
