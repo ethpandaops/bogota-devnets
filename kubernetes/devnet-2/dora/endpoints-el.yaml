@@ -19,6 +19,18 @@
   priority: -1
   archive: false
   engineSnooperUrl: http://rpc-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io:8961
+- url: https://rpc-lighthouse-erigon-1.srv.bogota-devnet-2.ethpandaops.io
+  name: lighthouse-erigon-1
+  authGroup: pandaops
+  priority: -1
+  archive: false
+  engineSnooperUrl: http://rpc-lighthouse-erigon-1.srv.bogota-devnet-2.ethpandaops.io:8961
+- url: https://rpc-lighthouse-erigon-2.srv.bogota-devnet-2.ethpandaops.io
+  name: lighthouse-erigon-2
+  authGroup: pandaops
+  priority: -1
+  archive: false
+  engineSnooperUrl: http://rpc-lighthouse-erigon-2.srv.bogota-devnet-2.ethpandaops.io:8961
 - url: https://rpc-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
   name: lighthouse-ethrex-1
   authGroup: pandaops

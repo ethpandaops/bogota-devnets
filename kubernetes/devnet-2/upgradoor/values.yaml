@@ -40,6 +40,8 @@ upgradoor:
     - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-geth-1.srv.bogota-devnet-2.ethpandaops.io"
     - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io"
     - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-2.srv.bogota-devnet-2.ethpandaops.io"
+    - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-1.srv.bogota-devnet-2.ethpandaops.io"
+    - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-2.srv.bogota-devnet-2.ethpandaops.io"
   validatorRangesUrl: "https://config.bogota-devnet-2.ethpandaops.io/api/v1/nodes/validator-ranges"
   # The UI includes the menu itself; its Content-Security-Policy admits the menu's data.
   extraArgs:

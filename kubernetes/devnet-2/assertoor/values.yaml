@@ -42,6 +42,12 @@ assertoor:
     - name:  lighthouse-besu-2
       executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io
       consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io
+    - name:  lighthouse-erigon-1
+      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-erigon-1.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-1.srv.bogota-devnet-2.ethpandaops.io
+    - name:  lighthouse-erigon-2
+      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-erigon-2.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-2.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-ethrex-1
       executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
       consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
@@ -74,6 +80,8 @@ assertoor:
       - bootnode-1
       - lighthouse-besu-1
       - lighthouse-besu-2
+      - lighthouse-erigon-1
+      - lighthouse-erigon-2
       - lighthouse-ethrex-1
       - lighthouse-ethrex-2
       - lighthouse-geth-1
@@ -85,6 +93,8 @@ assertoor:
     validatorPairNames:
       - lighthouse-besu-1
       - lighthouse-besu-2
+      - lighthouse-erigon-1
+      - lighthouse-erigon-2
       - lighthouse-ethrex-1
       - lighthouse-ethrex-2
       - lighthouse-geth-2
