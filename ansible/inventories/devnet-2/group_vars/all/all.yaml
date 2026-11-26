@@ -258,6 +258,8 @@ xatu_sentry_config: |
       - execution_payload_bid
       - payload_attestation_message
       - proposer_preferences
+  beaconCommittees:
+    enabled: true
   outputs:
   - name: grpc
     type: xatu
