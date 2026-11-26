@@ -2,9 +2,7 @@ roles:
   - name: gantsign.oh-my-zsh
     version: "2.7.0"
   - name: geerlingguy.docker
-    version: "8.0.0"
-  - name: geerlingguy.firewall
-    version: "2.5.0"
+    version: "8.0.1"
   - src: geerlingguy.pip
     version: "3.1.2"
   - name: robertdebock.fail2ban
@@ -12,12 +10,23 @@ roles:
   - name: gantsign.golang
     version: "3.5.0"
 
+# Pin every collection (transitive ones too): ansible-core bundles none, so this
+# file is the only source and ../setup.sh installs exactly it.
 collections:
   - name: ansible.posix
-  - name: community.sops
-    version: 1.7.0
-  - name: ethpandaops.general
-    source: https://github.com/ethpandaops/ansible-collection-general.git,pk910/upgradoor
-    type: git
-  - name: kubernetes.core
+    version: 2.2.2
   - name: ansible.utils
+    version: 6.1.1
+  - name: community.docker
+    version: 5.4.1
+  - name: community.general
+    version: 12.6.7
+  - name: community.library_inventory_filtering_v1
+    version: 1.1.5
+  - name: community.sops
+    version: 2.5.1
+  - name: kubernetes.core
+    version: 6.6.0
+  - name: ethpandaops.general
+    source: https://github.com/ethpandaops/ansible-collection-general.git,master
+    type: git

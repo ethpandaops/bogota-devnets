@@ -35,8 +35,7 @@ network-configs/**/mnemonics.yaml
 # scripts
 scripts/*.txt
 scripts/*.json
-# Python venv (uv)
-.venv/
 
-# Python
+# Python (uv, see pyproject.toml)
+.venv/
 __pycache__/
