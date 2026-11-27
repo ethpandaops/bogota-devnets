@@ -58,3 +58,55 @@ resource "cloudflare_record" "server_record_ns" {
   proxied  = false
   ttl      = 120
 }
+
+////////////////////////////////////////////////////////////////////////////////////////
+//                                 PUBLIC HOSTS
+////////////////////////////////////////////////////////////////////////////////////////
+
+# <network>.ethpandaops.io and *.<network>.ethpandaops.io, proxied by Cloudflare
+# to the cluster that runs the devnet's charts in kubernetes/<devnet>.
+locals {
+  tunnel_cname = "68eb8c26-dcfb-4f80-aab1-3263154e76f2.cfargotunnel.com"
+}
+
+resource "cloudflare_record" "public" {
+  zone_id = data.cloudflare_zone.default.id
+  name    = "${var.ethereum_network}.${data.cloudflare_zone.default.name}"
+  type    = "CNAME"
+  value   = local.tunnel_cname
+  proxied = true
+}
+
+resource "cloudflare_record" "public_star" {
+  zone_id = data.cloudflare_zone.default.id
+  name    = "*.${var.ethereum_network}.${data.cloudflare_zone.default.name}"
+  type    = "CNAME"
+  value   = local.tunnel_cname
+  proxied = true
+}
+
+# Universal SSL covers only one level below ethpandaops.io, so the second level
+# needs its own certificate.
+resource "cloudflare_certificate_pack" "public" {
+  zone_id                = data.cloudflare_zone.default.id
+  type                   = "advanced"
+  hosts                  = ["*.${var.ethereum_network}.${data.cloudflare_zone.default.name}"]
+  validation_method      = "txt"
+  validity_days          = 90
+  certificate_authority  = "lets_encrypt"
+  cloudflare_branding    = false
+  wait_for_active_status = true
+}
+
+# Adopts the two existing records. Import IDs are <zone_id>/<record_id>. An
+# imported record reads back with its full name, and provider v3 replaces a
+# record whose name differs from it, so both records above use full names.
+import {
+  to = cloudflare_record.public
+  id = "68c1026fd88dcae8bf2dfa38025ea155/5ecbe7e155a25404c0d907672cafbcb9"
+}
+
+import {
+  to = cloudflare_record.public_star
+  id = "68c1026fd88dcae8bf2dfa38025ea155/00da293da8f111f2dcf9fe570fa3c7a7"
+}
