@@ -97,16 +97,3 @@ resource "cloudflare_certificate_pack" "public" {
   cloudflare_branding    = false
   wait_for_active_status = true
 }
-
-# Adopts the two existing records. Import IDs are <zone_id>/<record_id>. An
-# imported record reads back with its full name, and provider v3 replaces a
-# record whose name differs from it, so both records above use full names.
-import {
-  to = cloudflare_record.public
-  id = "68c1026fd88dcae8bf2dfa38025ea155/5ecbe7e155a25404c0d907672cafbcb9"
-}
-
-import {
-  to = cloudflare_record.public_star
-  id = "68c1026fd88dcae8bf2dfa38025ea155/00da293da8f111f2dcf9fe570fa3c7a7"
-}
