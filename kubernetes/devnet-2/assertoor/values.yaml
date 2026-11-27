@@ -34,48 +34,48 @@ assertoor:
 
   endpoints:
     - name:  bootnode-1
-      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-bootnode-1.srv.bogota-devnet-2.ethpandaops.io
-      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-bootnode-1.srv.bogota-devnet-2.ethpandaops.io
+      executionUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-bootnode-1.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-bootnode-1.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-besu-1
-      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
-      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
+      executionUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-besu-2
-      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io
-      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io
+      executionUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-erigon-1
-      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-erigon-1.srv.bogota-devnet-2.ethpandaops.io
-      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-1.srv.bogota-devnet-2.ethpandaops.io
+      executionUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-erigon-1.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-1.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-erigon-2
-      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-erigon-2.srv.bogota-devnet-2.ethpandaops.io
-      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-2.srv.bogota-devnet-2.ethpandaops.io
+      executionUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-erigon-2.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-2.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-ethrex-1
-      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
-      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
+      executionUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-ethrex-2
-      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-ethrex-2.srv.bogota-devnet-2.ethpandaops.io
-      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-ethrex-2.srv.bogota-devnet-2.ethpandaops.io
+      executionUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-ethrex-2.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-ethrex-2.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-geth-1
-      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-geth-1.srv.bogota-devnet-2.ethpandaops.io
-      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-geth-1.srv.bogota-devnet-2.ethpandaops.io
+      executionUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-geth-1.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-geth-1.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-geth-2
-      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-geth-2.srv.bogota-devnet-2.ethpandaops.io
-      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-geth-2.srv.bogota-devnet-2.ethpandaops.io
+      executionUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-geth-2.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-geth-2.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-nethermind-1
-      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-nethermind-1.srv.bogota-devnet-2.ethpandaops.io
-      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-1.srv.bogota-devnet-2.ethpandaops.io
+      executionUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-nethermind-1.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-1.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-nethermind-2
-      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-nethermind-2.srv.bogota-devnet-2.ethpandaops.io
-      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-2.srv.bogota-devnet-2.ethpandaops.io
+      executionUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-nethermind-2.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-2.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-reth-1
-      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-reth-1.srv.bogota-devnet-2.ethpandaops.io
-      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-1.srv.bogota-devnet-2.ethpandaops.io
+      executionUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-reth-1.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-1.srv.bogota-devnet-2.ethpandaops.io
     - name:  lighthouse-reth-2
-      executionUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-reth-2.srv.bogota-devnet-2.ethpandaops.io
-      consensusUrl: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-2.srv.bogota-devnet-2.ethpandaops.io
+      executionUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@rpc-lighthouse-reth-2.srv.bogota-devnet-2.ethpandaops.io
+      consensusUrl: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-2.srv.bogota-devnet-2.ethpandaops.io
 
   validatorNamesInventory: https://config.bogota-devnet-2.ethpandaops.io/api/v1/nodes/validator-ranges
   globalVariables:
-    walletPrivkey: "<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.assertoor_private_key}>"
+    walletPrivkey: "<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.assertoor_private_key}>"
     clientPairNames:
       - bootnode-1
       - lighthouse-besu-1

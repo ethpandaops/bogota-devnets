@@ -78,35 +78,35 @@ forky:
         - name: bootnode-1
           type: "beacon_node"
           config:
-            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-bootnode-1.srv.bogota-devnet-2.ethpandaops.io
+            address: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-bootnode-1.srv.bogota-devnet-2.ethpandaops.io
             polling_interval: "12s"
         - name: lighthouse-besu-1
           type: "beacon_node"
           config:
-            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
+            address: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
             polling_interval: "12s"
         - name: lighthouse-erigon-1
           type: "beacon_node"
           config:
-            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-1.srv.bogota-devnet-2.ethpandaops.io
+            address: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-1.srv.bogota-devnet-2.ethpandaops.io
             polling_interval: "12s"
         - name: lighthouse-ethrex-1
           type: "beacon_node"
           config:
-            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
+            address: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
             polling_interval: "12s"
         - name: lighthouse-geth-1
           type: "beacon_node"
           config:
-            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-geth-1.srv.bogota-devnet-2.ethpandaops.io
+            address: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-geth-1.srv.bogota-devnet-2.ethpandaops.io
             polling_interval: "12s"
         - name: lighthouse-nethermind-1
           type: "beacon_node"
           config:
-            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-1.srv.bogota-devnet-2.ethpandaops.io
+            address: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-1.srv.bogota-devnet-2.ethpandaops.io
             polling_interval: "12s"
         - name: lighthouse-reth-1
           type: "beacon_node"
           config:
-            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-1.srv.bogota-devnet-2.ethpandaops.io
+            address: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-1.srv.bogota-devnet-2.ethpandaops.io
             polling_interval: "12s"

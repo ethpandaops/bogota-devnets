@@ -31,29 +31,29 @@ dugtrio:
     - "^/teku/v[0-9]+/admin/.*"
 
   endpoints:
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-bootnode-1.srv.bogota-devnet-2.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-bootnode-1.srv.bogota-devnet-2.ethpandaops.io
     name: bootnode-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-1.srv.bogota-devnet-2.ethpandaops.io
     name: lighthouse-besu-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-besu-2.srv.bogota-devnet-2.ethpandaops.io
     name: lighthouse-besu-2
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-1.srv.bogota-devnet-2.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-1.srv.bogota-devnet-2.ethpandaops.io
     name: lighthouse-erigon-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-2.srv.bogota-devnet-2.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-erigon-2.srv.bogota-devnet-2.ethpandaops.io
     name: lighthouse-erigon-2
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-ethrex-1.srv.bogota-devnet-2.ethpandaops.io
     name: lighthouse-ethrex-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-ethrex-2.srv.bogota-devnet-2.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-ethrex-2.srv.bogota-devnet-2.ethpandaops.io
     name: lighthouse-ethrex-2
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-geth-1.srv.bogota-devnet-2.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-geth-1.srv.bogota-devnet-2.ethpandaops.io
     name: lighthouse-geth-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-geth-2.srv.bogota-devnet-2.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-geth-2.srv.bogota-devnet-2.ethpandaops.io
     name: lighthouse-geth-2
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-1.srv.bogota-devnet-2.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-1.srv.bogota-devnet-2.ethpandaops.io
     name: lighthouse-nethermind-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-2.srv.bogota-devnet-2.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-nethermind-2.srv.bogota-devnet-2.ethpandaops.io
     name: lighthouse-nethermind-2
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-1.srv.bogota-devnet-2.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-1.srv.bogota-devnet-2.ethpandaops.io
     name: lighthouse-reth-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-2.srv.bogota-devnet-2.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.bogota-devnets.node_ingress.combined}>@bn-lighthouse-reth-2.srv.bogota-devnet-2.ethpandaops.io
     name: lighthouse-reth-2
